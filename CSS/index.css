@@ -151,8 +151,6 @@ nav {
   width: 100%;
   position: relative;
   z-index: 10;
-  background-color: #7a7a7a33;
-  background-image: var(--background_image);
 }
 
 nav .container {
