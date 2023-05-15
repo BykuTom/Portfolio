@@ -1,4 +1,5 @@
 const animatedText = document.querySelector(".end-text");
+const blinker = document.querySelector(".blinker");
 
 const typeWriterText = [
   "Software Engineer",
@@ -11,26 +12,39 @@ let delay = 100;
 let deleteDelay = 25;
 let strings;
 let textLenght;
+
 typeWriter = () => {
+  if (blinker.style.animationPlayState === "running") {
+    blinker.style.animationPlayState = "paused";
+    console.log(blinker.style.opacity);
+    blinker.style.opacity = "1";
+    console.log(blinker.style.opacity);
+  }
   if (arrayIndex >= 3) {
     arrayIndex = 0;
-    console.log("array index:" + arrayIndex);
   }
+
   animatedText.textContent = typeWriterText[arrayIndex].substring(0, textIndex);
-  console.log("Im here");
+
   if (textIndex++ != typeWriterText[arrayIndex].length) {
     setTimeout(typeWriter, delay);
   } else {
+    blinker.style.animationPlayState = "running";
     textLenght = typeWriterText[arrayIndex].length + 1;
     setTimeout(textRemover, 3000);
   }
 };
 
 textRemover = () => {
-  console.log(textLenght);
+  if (blinker.style.animationPlayState === "running") {
+    blinker.style.animationPlayState = "paused";
+    console.log(blinker.style.opacity);
+    blinker.style.opacity = "1";
+    console.log(blinker.style.opacity);
+  }
   strings = animatedText.textContent.slice(0, textLenght);
   animatedText.textContent = strings;
-  console.log(strings);
+
   if (textLenght != -1) {
     textLenght--;
     setTimeout(textRemover, deleteDelay);
@@ -41,6 +55,11 @@ textRemover = () => {
   }
 };
 
+function reset_animation() {
+  blinker.style.animation = "none";
+  blinker.offsetHeight; /* trigger reflow */
+  blinker.style.animation = null;
+}
 window.addEventListener("load", typeWriter);
 
 /* const loadAnimatedText = () => {
