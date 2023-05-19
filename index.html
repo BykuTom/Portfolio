@@ -18,6 +18,8 @@
   </head>
   <body>
     <header>
+      <canvas class="header-background"> </canvas>
+
       <nav>
         <section class="container" id="home-sectionv">
           <section class="nav-logo">
@@ -47,38 +49,33 @@
             <img class="up-left" src="IMG/Lshape.png" alt="" />
             <img class="up-right" src="IMG/Lshape.png" alt="" />
           </div>
-          <section class="column-1">
+          <section class="header-text">
             <h1 class="header-title">Tomasz Wolak</h1>
-            <section class="animated-subtitle">
+            <div class="animated-subtitle">
               <span class="animated-subtitle--text beggining-text"
                 >A Professional</span
               ><span class="animated-subtitle--text end-text"></span>
               <span class="blinker">&#9632;</span>
-            </section>
+            </div>
             <!-- <h2 class="header-subtitle">Professional software engineer</h2> -->
-            <p class="text">
-              Hello, my name is Tomasz Wolak, I am a uk based software engineer
-              with a passion for fullstack development and all things tech
-              related.
-            </p>
-            <a href="#" class="button">Download CV</a>
-          </section>
-          <section class="column-2 image">
-            <div class="column-2-blob-red"></div>
-            <div class="column-2-blob-blue"></div>
-            <img
-              src="/IMG/Photo1.png"
-              alt=""
-              class="image-elements photo-one"
-            />
-            <ul class="header-socials">
-              <li>
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a
-                ><a href="#"><i class="fa-brands fa-square-facebook"></i></a
-                ><a href="#"><i class="fa-brands fa-square-instagram"></i></a
-                ><a href="#"></a>
-              </li>
-            </ul>
+            <div class="header-socials">
+              <ul class="socials-list">
+                <li>
+                  <a href="#" class="social-links"
+                    ><i class="fa-brands fa-linkedin"></i
+                  ></a>
+                  <a href="#" class="social-links">
+                    <i class="fa-brands fa-square-facebook"></i
+                  ></a>
+                  <a href="#" class="social-links">
+                    <i class="fa-brands fa-square-instagram"></i
+                  ></a>
+                  <a href="#" class="social-links">
+                    <i class="fa-brands fa-square-github"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
       </section>
@@ -95,17 +92,12 @@
           <h3 class="title" data-title="Who am I?">About Me</h3>
         </section>
         <div class="container grid-2">
-          <div class="about-me-column1">
-            <div class="monitor">
-              <img src="/IMG/CRTMonitornew.png" class="bezel" alt="" /><img
-                src="/IMG/head-rotating.gif"
-                class="head-spinning"
-                alt="photo"
-              />
-              <div class="refresh-bar"><div class="refresh"></div></div>
-              <div class="glow"></div>
-            </div>
-            <div class="pc"><img src="/IMG/OLDPC.png" alt="" /></div>
+          <div class="about-me-column1 image">
+            <img
+              src="/IMG/Photo1.png"
+              alt=""
+              class="image-elements photo-one"
+            />
           </div>
           <div class="about-me-column2">
             <h2 class="about-me-title">
@@ -119,126 +111,133 @@
               requirements, manage priorities, iterate and deliver on time.
               Please look at my projects to get an idea of my skills.
             </p>
+            <p class="text">Location : Noth Lincolnshire, UK</p>
+            <a href="#" class="button">Download CV</a>
           </div>
         </div>
       </div>
     </section>
-    <section class="skills" id="Skills-section">
-      <section class="container">
-        <div class="section-corners">
-          <img class="down-left" src="IMG/Lshape.png" alt="" />
-          <img class="down-right" src="IMG/Lshape.png" alt="" />
-          <img class="up-left" src="IMG/Lshape.png" alt="" />
-          <img class="up-right" src="IMG/Lshape.png" alt="" />
+    <section class="skills container" id="Skills-section">
+      <div class="section-corners">
+        <img class="down-left" src="IMG/Lshape.png" alt="" />
+        <img class="down-right" src="IMG/Lshape.png" alt="" />
+        <img class="up-left" src="IMG/Lshape.png" alt="" />
+        <img class="up-right" src="IMG/Lshape.png" alt="" />
+      </div>
+      <section class="section-header">
+        <h3 class="title" data-title="What I'm good at">Skills</h3>
+      </section>
+      <section class="tech-stack">
+        <div class="tech-stack-wrapper">
+          <div class="tech-stack-lines"></div>
+          <div class="tech-stack-box" data-tab="tech-stack">
+            <input
+              type="radio"
+              class="tabs__radio"
+              name="tech-stack-tabs"
+              id="tab-html"
+              checked
+            />
+            <label for="tab-html" class="tabs__label">
+              <i class="fa-brands fa-html5"></i>
+            </label>
+            <div class="tabs__content">
+              HTML is the foundation of any website, thus it's an important
+              technology to master. As expected it too was the beggining of my
+              journey with web development, from the basics through froms and
+              validations to accessability features, I have learned the
+              necessary know-how on HTML. As always learning is a neverending
+              process, so as long as there is room for improvement I will strive
+              to perfect my skills.
+            </div>
+            <input
+              type="radio"
+              class="tabs__radio"
+              name="tech-stack-tabs"
+              id="tab-CSS"
+            />
+            <label for="tab-CSS" class="tabs__label">
+              <i class="fa-brands fa-css3-alt"></i>
+            </label>
+            <div class="tabs__content">Content for CSS tab</div>
+            <input
+              type="radio"
+              class="tabs__radio"
+              name="tech-stack-tabs"
+              id="tab-JavaScript"
+            />
+            <label for="tab-JavaScript" class="tabs__label">
+              <i class="fa-brands fa-js"></i>
+            </label>
+            <div class="tabs__content">Content for JavaScript tab</div>
+          </div>
         </div>
-        <section class="section-header">
-          <h3 class="title" data-title="What I'm good at">Skills</h3>
-          <p class="text">
-            As all skilled professionals I have gone through a lenghty process
-            of learning, these are the things I've learned thus far to give you
-            an idea of what I already know, as well as the things I am yet to
-            learn.
-          </p>
-        </section>
-        <section class="tech-stack">
-          <div class="tech-stack-wrapper">
-            <div class="tech-stack-lines"></div>
-            <div class="tech-stack-box" data-tab="tech-stack">
-              <input
-                type="radio"
-                class="tabs__radio"
-                name="tech-stack-tabs"
-                id="tab-html"
-                checked
-              />
-              <label for="tab-html" class="tabs__label">
-                <i class="fa-brands fa-html5"></i>
-              </label>
-              <div class="tabs__content">
-                HTML is the foundation of any website, thus it's an important
-                technology to master. As expected it too was the beggining of my
-                journey with web development, from the basics through froms and
-                validations to accessability features, I have learned the
-                necessary know-how on HTML. As always learning is a neverending
-                process, so as long as there is room for improvement I will
-                strive to perfect my skills.
-              </div>
-              <input
-                type="radio"
-                class="tabs__radio"
-                name="tech-stack-tabs"
-                id="tab-CSS"
-              />
-              <label for="tab-CSS" class="tabs__label">
-                <i class="fa-brands fa-css3-alt"></i>
-              </label>
-              <div class="tabs__content">Content for CSS tab</div>
-              <input
-                type="radio"
-                class="tabs__radio"
-                name="tech-stack-tabs"
-                id="tab-JavaScript"
-              />
-              <label for="tab-JavaScript" class="tabs__label">
-                <i class="fa-brands fa-js"></i>
-              </label>
-              <div class="tabs__content">Content for JavaScript tab</div>
+      </section>
+      <section class="card-container">
+        <div class="card-wrapper">
+          <div class="card-lines"></div>
+          <div class="card card-one" data-card="UI/UX">
+            <div class="card-content">
+              <h3 class="title-card">Web Design</h3>
+              <p class="text">
+                I am able to recreate complex designs to pixel perfect quality
+                and create gorgeus designs on my own, I am able to provide
+                suggestions to potential customers on a number of solutions to
+                best fit their needs.
+              </p>
             </div>
           </div>
-        </section>
-        <section class="card-container">
-          <div class="card-wrapper">
-            <div class="card-lines"></div>
-            <div class="card card-one" data-card="UI/UX">
-              <div class="card-content">
-                <h3 class="title-card">Web Design</h3>
-                <p class="text">
-                  I am able to recreate complex designs to pixel perfect quality
-                  and create gorgeus designs on my own, I am able to provide
-                  suggestions to potential customers on a number of solutions to
-                  best fit their needs.
-                </p>
-              </div>
-            </div>
-            <div class="card-imagebox">
-              <img class="icon" src="IMG/webdesign.png" alt="webdes.png" />
+          <div class="card-imagebox">
+            <img class="icon" src="IMG/webdesign.png" alt="webdes.png" />
+          </div>
+        </div>
+        <div class="card-wrapper">
+          <div class="card-lines"></div>
+          <div class="card card-two" data-card="Code">
+            <div class="card-content">
+              <h3 class="title-card">Web Development</h3>
+              <p class="text">
+                I am an skilled web developer able to work with a variety of
+                tools to bring forth the highest standart of service.
+              </p>
             </div>
           </div>
-          <div class="card-wrapper">
-            <div class="card-lines"></div>
-            <div class="card card-two" data-card="Code">
-              <div class="card-content">
-                <h3 class="title-card">Web Development</h3>
-                <p class="text">
-                  I am an skilled web developer able to work with a variety of
-                  tools to bring forth the highest standart of service.
-                </p>
-              </div>
-            </div>
-            <div class="card-imagebox">
-              <img class="icon" src="IMG/webdevelopment.png" alt="webdev.png" />
+          <div class="card-imagebox">
+            <img class="icon" src="IMG/webdevelopment.png" alt="webdev.png" />
+          </div>
+        </div>
+        <div class="card-wrapper">
+          <div class="card-lines"></div>
+          <div class="card card-three" data-card="App">
+            <div class="card-content">
+              <h3 class="title-card">App Development</h3>
+              <p class="text">
+                I have worked with on developing a number of mobile apps and I
+                feel confident in this skill.
+              </p>
             </div>
           </div>
-          <div class="card-wrapper">
-            <div class="card-lines"></div>
-            <div class="card card-three" data-card="App">
-              <div class="card-content">
-                <h3 class="title-card">App Development</h3>
-                <p class="text">
-                  I have worked with on developing a number of mobile apps and I
-                  feel confident in this skill.
-                </p>
-              </div>
-            </div>
-            <div class="card-imagebox">
-              <img class="icon" src="IMG/appdevelopment.png" alt="appdev.png" />
-            </div>
+          <div class="card-imagebox">
+            <img class="icon" src="IMG/appdevelopment.png" alt="appdev.png" />
           </div>
-        </section>
+        </div>
       </section>
     </section>
     <main></main>
     <footer></footer>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur" />
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10"
+            result="goo"
+          />
+        </filter>
+      </defs>
+    </svg>
   </body>
   <!-- “Knowledge is of no value unless you put it into practice” -->
 </html>
