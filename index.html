@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
     <link rel="stylesheet" href="CSS/index.css" />
+    <script
+      type="module"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+      integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+    <script src="JS/isotope.pkgd.min.js" defer></script>
     <script src="JS/index.js" defer></script>
     <link
       rel="stylesheet"
@@ -18,7 +27,7 @@
   </head>
   <body>
     <header>
-      <canvas class="header-background"> </canvas>
+      <canvas class="canvas"></canvas>
 
       <nav>
         <section class="container" id="home-sectionv">
@@ -36,12 +45,13 @@
               <li><a href="#Skills-section">Skills</a></li>
               <li><a href="#">My Works</a></li>
               <li><a href="#">Testamonials</a></li>
-              <li><a href="#" class="active">Contact me</a></li>
+              <li><a href="#" class="active button">Contact me</a></li>
             </ul>
           </section>
         </section>
       </nav>
       <section class="header-content">
+        <div class="header-background-center"></div>
         <section class="container grid-2">
           <div class="section-corners">
             <img class="down-left" src="IMG/Lshape.png" alt="" />
@@ -80,8 +90,84 @@
         </section>
       </section>
     </header>
-    <section class="about-me" id="About-me-section">
-      <div class="container">
+
+    <main>
+      <section class="about-me" id="About-me-section">
+        <div class="container">
+          <div class="section-corners">
+            <img class="down-left" src="IMG/Lshape.png" alt="" />
+            <img class="down-right" src="IMG/Lshape.png" alt="" />
+            <img class="up-left" src="IMG/Lshape.png" alt="" />
+            <img class="up-right" src="IMG/Lshape.png" alt="" />
+          </div>
+          <section class="section-header">
+            <h3 class="title" data-title="Who am I?">About Me</h3>
+          </section>
+          <div class="grid-2">
+            <div class="about-me-column1 image">
+              <img
+                src="/IMG/Photo1.png"
+                alt=""
+                class="image-elements photo-one"
+              />
+            </div>
+            <div class="about-me-column2">
+              <h2 class="about-me-title">
+                I'm Tomasz Wolak, a Front-end & Mobile software engineer
+              </h2>
+              <p class="text">
+                I am a software engineer based in the United Kingdom and I have
+                been building application websites with creativity and problem
+                solving in hopes to bring products to life. I can help translate
+                a vision onto a tangible and useful software products. I stick
+                to requirements, manage priorities, iterate and deliver on time.
+                Check out my projects to take a look at what I am capable of.
+              </p>
+              <div class="about-me-column2-wrapper">
+                <p class="text">
+                  <span class="button">Location:</span> Noth Lincolnshire, UK
+                </p>
+                <a href="tom.wolak@outlook.com" class="text"
+                  ><span class="button">Email:</span> tom.wolak@outlook.com</a
+                >
+              </div>
+              <a href="#" class="button">Download CV</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="records">
+        <div class="container">
+          <div class="record-wrap">
+            <div class="record-circle">
+              <h2 class="number" data-number="35">0</h2>
+              <h4 class="sub-title">Projects Finished</h4>
+            </div>
+          </div>
+
+          <div class="record-wrap">
+            <div class="record-circle">
+              <h2 class="number" data-number="15">0</h2>
+              <h4 class="sub-title">Clients Served</h4>
+            </div>
+          </div>
+
+          <div class="record-wrap">
+            <div class="record-circle">
+              <h2 class="number" data-number="235">0</h2>
+              <h4 class="sub-title">Hours Worked</h4>
+            </div>
+          </div>
+
+          <div class="record-wrap">
+            <div class="record-circle">
+              <h2 class="number" data-number="5">0</h2>
+              <h4 class="sub-title">Certifications Obtained</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="skills container" id="Skills-section">
         <div class="section-corners">
           <img class="down-left" src="IMG/Lshape.png" alt="" />
           <img class="down-right" src="IMG/Lshape.png" alt="" />
@@ -89,155 +175,319 @@
           <img class="up-right" src="IMG/Lshape.png" alt="" />
         </div>
         <section class="section-header">
-          <h3 class="title" data-title="Who am I?">About Me</h3>
+          <h3 class="title" data-title="What I'm good at">Skills</h3>
         </section>
-        <div class="container grid-2">
-          <div class="about-me-column1 image">
-            <img
-              src="/IMG/Photo1.png"
-              alt=""
-              class="image-elements photo-one"
-            />
+        <section class="tech-stack">
+          <div class="tech-stack-wrapper">
+            <div class="tech-stack-lines"></div>
+            <div class="tech-stack-box" data-tab="tech-stack">
+              <input
+                type="radio"
+                class="tabs__radio"
+                name="tech-stack-tabs"
+                id="tab-html"
+                checked
+              />
+              <label for="tab-html" class="tabs__label">
+                <i class="fa-brands fa-html5"></i>
+              </label>
+              <div class="tabs__content">
+                HTML is the foundation of any website, thus it's an important
+                technology to master. As expected it too was the beggining of my
+                journey with web development, from the basics through froms and
+                validations to accessability features, I have learned the
+                necessary know-how on HTML. As always learning is a neverending
+                process, so as long as there is room for improvement I will
+                strive to perfect my skills.
+              </div>
+              <input
+                type="radio"
+                class="tabs__radio"
+                name="tech-stack-tabs"
+                id="tab-CSS"
+              />
+              <label for="tab-CSS" class="tabs__label">
+                <i class="fa-brands fa-css3-alt"></i>
+              </label>
+              <div class="tabs__content">Content for CSS tab</div>
+              <input
+                type="radio"
+                class="tabs__radio"
+                name="tech-stack-tabs"
+                id="tab-JavaScript"
+              />
+              <label for="tab-JavaScript" class="tabs__label">
+                <i class="fa-brands fa-js"></i>
+              </label>
+              <div class="tabs__content">Content for JavaScript tab</div>
+            </div>
           </div>
-          <div class="about-me-column2">
-            <h2 class="about-me-title">
-              I'm Tomasz Wolak, a Front-end & Mobile software engineer
-            </h2>
-            <p class="text">
-              I am a software engineer based in the United Kingdom and I have
-              been building application websites with creativity and problem
-              solving in hopes to bring products to life. I can help translate a
-              vision onto a tangible and useful software products. I stick to
-              requirements, manage priorities, iterate and deliver on time.
-              Please look at my projects to get an idea of my skills.
-            </p>
-            <p class="text">Location : Noth Lincolnshire, UK</p>
-            <a href="#" class="button">Download CV</a>
+        </section>
+        <section class="card-container">
+          <div class="card-wrapper">
+            <div class="card-lines"></div>
+            <div class="card card-one" data-card="UI/UX">
+              <div class="card-content">
+                <h3 class="title-card">Web Design</h3>
+                <p class="text">
+                  I am able to recreate complex designs to pixel perfect quality
+                  and create gorgeus designs on my own, I am able to provide
+                  suggestions to potential customers on a number of solutions to
+                  best fit their needs.
+                </p>
+              </div>
+            </div>
+            <div class="card-imagebox">
+              <img class="icon" src="IMG/webdesign.png" alt="webdes.png" />
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
-    <section class="skills container" id="Skills-section">
-      <div class="section-corners">
-        <img class="down-left" src="IMG/Lshape.png" alt="" />
-        <img class="down-right" src="IMG/Lshape.png" alt="" />
-        <img class="up-left" src="IMG/Lshape.png" alt="" />
-        <img class="up-right" src="IMG/Lshape.png" alt="" />
-      </div>
-      <section class="section-header">
-        <h3 class="title" data-title="What I'm good at">Skills</h3>
+          <div class="card-wrapper">
+            <div class="card-lines"></div>
+            <div class="card card-two" data-card="Code">
+              <div class="card-content">
+                <h3 class="title-card">Web Development</h3>
+                <p class="text">
+                  I am an skilled web developer able to work with a variety of
+                  tools to bring forth the highest standart of service.
+                </p>
+              </div>
+            </div>
+            <div class="card-imagebox">
+              <img class="icon" src="IMG/webdevelopment.png" alt="webdev.png" />
+            </div>
+          </div>
+          <div class="card-wrapper">
+            <div class="card-lines"></div>
+            <div class="card card-three" data-card="App">
+              <div class="card-content">
+                <h3 class="title-card">App Development</h3>
+                <p class="text">
+                  I have worked with on developing a number of mobile apps and I
+                  feel confident in this skill.
+                </p>
+              </div>
+            </div>
+            <div class="card-imagebox">
+              <img class="icon" src="IMG/appdevelopment.png" alt="appdev.png" />
+            </div>
+          </div>
+        </section>
       </section>
-      <section class="tech-stack">
-        <div class="tech-stack-wrapper">
-          <div class="tech-stack-lines"></div>
-          <div class="tech-stack-box" data-tab="tech-stack">
-            <input
-              type="radio"
-              class="tabs__radio"
-              name="tech-stack-tabs"
-              id="tab-html"
-              checked
-            />
-            <label for="tab-html" class="tabs__label">
-              <i class="fa-brands fa-html5"></i>
-            </label>
-            <div class="tabs__content">
-              HTML is the foundation of any website, thus it's an important
-              technology to master. As expected it too was the beggining of my
-              journey with web development, from the basics through froms and
-              validations to accessability features, I have learned the
-              necessary know-how on HTML. As always learning is a neverending
-              process, so as long as there is room for improvement I will strive
-              to perfect my skills.
+      <section class="portfolio">
+        <div class="container">
+          <div class="section-header">
+            <h3 class="title" data-title="My works">Portfolio</h3>
+            <div class="filter">
+              <button class="filter-button active" data-filter="*">ALL</button>
+              <button class="filter-button" data-filter=".JavaScript">
+                Vanilla JavaScript
+              </button>
+              <button class="filter-button" data-filter=".React">React</button>
+              <button class="filter-button" data-filter=".Next-JS">
+                Next.JS
+              </button>
+              <button class="filter-button" data-filter=".Tailwind">
+                Tailwind
+              </button>
+              <button class="filter-button" data-filter=".TypeScript">
+                TypeScript
+              </button>
             </div>
-            <input
-              type="radio"
-              class="tabs__radio"
-              name="tech-stack-tabs"
-              id="tab-CSS"
-            />
-            <label for="tab-CSS" class="tabs__label">
-              <i class="fa-brands fa-css3-alt"></i>
-            </label>
-            <div class="tabs__content">Content for CSS tab</div>
-            <input
-              type="radio"
-              class="tabs__radio"
-              name="tech-stack-tabs"
-              id="tab-JavaScript"
-            />
-            <label for="tab-JavaScript" class="tabs__label">
-              <i class="fa-brands fa-js"></i>
-            </label>
-            <div class="tabs__content">Content for JavaScript tab</div>
+          </div>
+          <div class="section-body">
+            <div class="grid">
+              <div class="grid-item JavaScript">
+                <div class="gallery-image">
+                  <img src="/IMG/portfolio/Website-Example.png" alt="" />
+                  <div class="image-overlay">
+                    <div class="image-description">
+                      <h3>JavaScript Website</h3>
+                      <div class="project-links">
+                        <h5>Code</h5>
+                        <a href="#" class="github-links">
+                          <i class="fa-brands fa-square-github"></i>
+                        </a>
+                        <h5>Live Demo</h5>
+                        <a href="#" class="live-demo-links"
+                          ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-item React">
+                <div class="gallery-image">
+                  <img src="/IMG/portfolio/Website-Example.png" alt="" />
+                  <div class="image-overlay">
+                    <div class="image-description">
+                      <h3>Commertial Website</h3>
+                      <div class="project-links">
+                        <h5>Code</h5>
+                        <a href="#" class="github-links">
+                          <i class="fa-brands fa-square-github"></i>
+                        </a>
+                        <h5>Live Demo</h5>
+                        <a href="#" class="live-demo-links"
+                          ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-item React Tailwind">
+                <div class="gallery-image">
+                  <img src="/IMG/portfolio/Website-Example.png" alt="" />
+                  <div class="image-overlay">
+                    <div class="image-description">
+                      <h3>Commertial Website</h3>
+                      <div class="project-links">
+                        <h5>Code</h5>
+                        <a href="#" class="github-links">
+                          <i class="fa-brands fa-square-github"></i>
+                        </a>
+                        <h5>Live Demo</h5>
+                        <a href="#" class="live-demo-links"
+                          ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-item Next-JS Tailwind">
+                <div class="gallery-image">
+                  <img src="/IMG/portfolio/Website-Example.png" alt="" />
+                  <div class="image-overlay">
+                    <div class="image-description">
+                      <h3>Commertial Website</h3>
+                      <div class="project-links">
+                        <h5>Code</h5>
+                        <a href="#" class="github-links">
+                          <i class="fa-brands fa-square-github"></i>
+                        </a>
+                        <h5>Live Demo</h5>
+                        <a href="#" class="live-demo-links"
+                          ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-item React Tailwind TypeScript">
+                <div class="gallery-image">
+                  <img src="/IMG/portfolio/Website-Example.png" alt="" />
+                  <div class="image-overlay">
+                    <div class="image-description">
+                      <h3>Commertial Website</h3>
+                      <div class="project-links">
+                        <h5>Code</h5>
+                        <a href="#" class="github-links">
+                          <i class="fa-brands fa-square-github"></i>
+                        </a>
+                        <h5>Live Demo</h5>
+                        <a href="#" class="live-demo-links"
+                          ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-item Next-JS Tailwind TypeScript">
+                <div class="gallery-image">
+                  <img src="/IMG/portfolio/Website-Example.png" alt="" />
+                  <div class="image-overlay">
+                    <div class="image-description">
+                      <h3>Commertial Website</h3>
+                      <div class="project-links">
+                        <h5>Code</h5>
+                        <a href="#" class="github-links">
+                          <i class="fa-brands fa-square-github"></i>
+                        </a>
+                        <h5>Live Demo</h5>
+                        <a href="#" class="live-demo-links"
+                          ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-item Next-JS TypeScript">
+                <div class="gallery-image">
+                  <img src="/IMG/portfolio/Website-Example.png" alt="" />
+                  <div class="image-overlay">
+                    <div class="image-description">
+                      <h3>Commertial Website</h3>
+                      <div class="project-links">
+                        <h5>Code</h5>
+                        <a href="#" class="github-links">
+                          <i class="fa-brands fa-square-github"></i>
+                        </a>
+                        <h5>Live Demo</h5>
+                        <a href="#" class="live-demo-links"
+                          ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-item JavaScript Tailwind">
+                <div class="gallery-image">
+                  <img src="/IMG/portfolio/Website-Example.png" alt="" />
+                  <div class="image-overlay">
+                    <div class="image-description">
+                      <h3>Commertial Website</h3>
+                      <div class="project-links">
+                        <h5>Code</h5>
+                        <a href="#" class="github-links">
+                          <i class="fa-brands fa-square-github"></i>
+                        </a>
+                        <h5>Live Demo</h5>
+                        <a href="#" class="live-demo-links"
+                          ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid-item TypeScript Tailwind">
+                <div class="gallery-image">
+                  <img src="/IMG/portfolio/Website-Example.png" alt="" />
+                  <div class="image-overlay">
+                    <div class="image-description">
+                      <h3>Commertial Website</h3>
+                      <div class="project-links">
+                        <h5>Code</h5>
+                        <a href="#" class="github-links">
+                          <i class="fa-brands fa-square-github"></i>
+                        </a>
+                        <h5>Live Demo</h5>
+                        <a href="#" class="live-demo-links"
+                          ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section-corners">
+            <img class="down-left" src="IMG/Lshape.png" alt="" />
+            <img class="down-right" src="IMG/Lshape.png" alt="" />
+            <img class="up-left" src="IMG/Lshape.png" alt="" />
+            <img class="up-right" src="IMG/Lshape.png" alt="" />
           </div>
         </div>
       </section>
-      <section class="card-container">
-        <div class="card-wrapper">
-          <div class="card-lines"></div>
-          <div class="card card-one" data-card="UI/UX">
-            <div class="card-content">
-              <h3 class="title-card">Web Design</h3>
-              <p class="text">
-                I am able to recreate complex designs to pixel perfect quality
-                and create gorgeus designs on my own, I am able to provide
-                suggestions to potential customers on a number of solutions to
-                best fit their needs.
-              </p>
-            </div>
-          </div>
-          <div class="card-imagebox">
-            <img class="icon" src="IMG/webdesign.png" alt="webdes.png" />
-          </div>
-        </div>
-        <div class="card-wrapper">
-          <div class="card-lines"></div>
-          <div class="card card-two" data-card="Code">
-            <div class="card-content">
-              <h3 class="title-card">Web Development</h3>
-              <p class="text">
-                I am an skilled web developer able to work with a variety of
-                tools to bring forth the highest standart of service.
-              </p>
-            </div>
-          </div>
-          <div class="card-imagebox">
-            <img class="icon" src="IMG/webdevelopment.png" alt="webdev.png" />
-          </div>
-        </div>
-        <div class="card-wrapper">
-          <div class="card-lines"></div>
-          <div class="card card-three" data-card="App">
-            <div class="card-content">
-              <h3 class="title-card">App Development</h3>
-              <p class="text">
-                I have worked with on developing a number of mobile apps and I
-                feel confident in this skill.
-              </p>
-            </div>
-          </div>
-          <div class="card-imagebox">
-            <img class="icon" src="IMG/appdevelopment.png" alt="appdev.png" />
-          </div>
-        </div>
-      </section>
-    </section>
-    <main></main>
+    </main>
     <footer></footer>
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-      <defs>
-        <filter id="goo">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur" />
-          <feColorMatrix
-            in="blur"
-            mode="matrix"
-            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10"
-            result="goo"
-          />
-        </filter>
-      </defs>
-    </svg>
   </body>
   <!-- “Knowledge is of no value unless you put it into practice” -->
 </html>
