@@ -64,14 +64,32 @@ textRemover = () => {
   }
 };
 /*End of typewriter */
-/* Section Observer*/
+/* About-me Section Observer*/
+const aboutMeImage = document.querySelector(".image");
+
+const aboutMeObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        aboutMeImage.style.animationPlayState = "running";
+        aboutMeImage.style.opacity = "1";
+      }
+    });
+  },
+  { threshold: 1 }
+);
+
+aboutMeObserver.observe(aboutMeImage);
+
+/*End of About-me section Onserver */
+/* Record Section Observer*/
 const record_wrap = document.querySelector(".records");
 const records_numbers = document.querySelectorAll(".number");
 const record_Circles = document.querySelectorAll(".record-circle");
 
 record_Circles.forEach((circle) => circle.classList.remove("active"));
 
-const observer = new IntersectionObserver(
+const recordsObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -94,16 +112,10 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.7 }
+  { threshold: 1 }
 );
 
-const config = {
-  root: null, // Use the viewport as the root element
-  threshold: 1, // Trigger the observer callback when the element is 50% visible
-};
-observer.root = null;
-observer.threshold = 1;
-observer.observe(record_wrap);
+recordsObserver.observe(record_wrap);
 
 RecordsCounter = () => {
   records_number.forEach();
@@ -118,7 +130,7 @@ RecordsCounter = () => {
     setTimeout(textRemover, 3000);
   }
 };
-/*End of section Onserver */
+/*End of Record section Onserver */
 /* header background*/
 const canvas = document.querySelector(".canvas");
 const ctx = canvas.getContext("2d");
@@ -182,11 +194,12 @@ function drawLine() {
       if (distance < particleDistance * 2) {
         opacity = 1 - distance / (particleDistance * 1.25);
         const gradient = ctx.createLinearGradient(0, 0, w, h);
-        gradient.addColorStop(0.16, "#4a4a4a64");
-        gradient.addColorStop(0.32, "#5a5a5a64");
-        gradient.addColorStop(0.5, "#fffdf796");
-        gradient.addColorStop(0.68, "#5a5a5a64");
-        gradient.addColorStop(0.84, "#4a4a4a64");
+        gradient.addColorStop(0.16, "#4c787e64");
+        gradient.addColorStop(0.32, "#ff964f96");
+        gradient.addColorStop(0.5, "#e9542696");
+        // gradient.addColorStop(0.5, "#fffdf796");
+        gradient.addColorStop(0.68, "#ff964f96");
+        gradient.addColorStop(0.84, "#4c787e64");
         ctx.strokeStyle = gradient;
         ctx.lineWidth = 1;
         ctx.beginPath();
