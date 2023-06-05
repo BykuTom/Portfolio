@@ -64,8 +64,62 @@ textRemover = () => {
   }
 };
 /*End of typewriter */
+/* Header Section Observer*/
+const headerTitle = document.querySelector(".header-title");
+const begginingSubText = document.querySelector(".beggining-text");
+const socialLinkIconsNodeList = document.querySelectorAll(".social-links"); // grab nodelist
+const socialLinkIconsArray = [...socialLinkIconsNodeList]; // use spread operator to convert it into an array
+const subText = "A Professional";
+const myName = "Tomasz Wolak";
+let headerTextIndex = 0;
+let subTextIndex = 1;
+let socialLinkIndex = 0;
+/* const headerObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting){
+
+    }
+  });
+},
+{ threshold: 1 }
+); */
+socialLinkLoader = () => {
+  console.log(socialLinkIconsArray[socialLinkIndex]);
+
+  socialLinkIconsArray[socialLinkIndex].style.opacity = 1;
+  socialLinkIconsArray[socialLinkIndex].style.bottom = "0px";
+
+  if (socialLinkIndex != socialLinkIconsArray.length - 1) {
+    socialLinkIndex++;
+    setTimeout(socialLinkLoader, 100);
+  }
+};
+
+headerTypeWriter = () => {
+  headerTitle.textContent = myName.substring(0, headerTextIndex);
+
+  if (headerTextIndex != myName.length) {
+    headerTextIndex++;
+    setTimeout(headerTypeWriter, delay / 2);
+  } else {
+    begginingSubText.textContent = subText.substring(0, subTextIndex);
+
+    if (subTextIndex++ != subText.length) {
+      setTimeout(headerTypeWriter, delay);
+    } else {
+      socialLinkLoader();
+      typeWriter();
+    }
+  }
+};
+//typeWriter();
+/*End of Header Section Observer*/
 /* About-me Section Observer*/
 const aboutMeImage = document.querySelector(".image");
+const aboutMeTitle = document.querySelector(".about-me-title");
+const aboutMeText = document.querySelector(".about-me-text");
+const aboutMeWrapper = document.querySelector(".about-me-column2-wrapper");
+const cvButton = document.querySelector(".cv-button");
 
 const aboutMeObserver = new IntersectionObserver(
   (entries) => {
@@ -73,10 +127,19 @@ const aboutMeObserver = new IntersectionObserver(
       if (entry.isIntersecting) {
         aboutMeImage.style.animationPlayState = "running";
         aboutMeImage.style.opacity = "1";
+        aboutMeImage.style.left = "0px";
+        aboutMeTitle.style.opacity = "1";
+        aboutMeTitle.style.top = "0px";
+        aboutMeText.style.opacity = "1";
+        aboutMeText.style.right = "0px";
+        aboutMeWrapper.style.opacity = "1";
+        aboutMeWrapper.style.bottom = "0px";
+        cvButton.style.opacity = "1";
+        cvButton.style.bottom = "0px";
       }
     });
   },
-  { threshold: 1 }
+  { threshold: 0.5 }
 );
 
 aboutMeObserver.observe(aboutMeImage);
@@ -140,7 +203,7 @@ let particleDistance = 64;
 let mouse = {
   x: undefined,
   y: undefined,
-  radius: 128,
+  radius: 96,
 };
 
 function init() {
@@ -172,8 +235,8 @@ function resizeReset() {
 function animationLoop() {
   ctx.clearRect(0, 0, w, h);
   drawScene();
-  // console.log("im here");
-  setTimeout(animationLoop, 12);
+
+  setTimeout(animationLoop, 10);
 }
 
 function drawScene() {
@@ -191,17 +254,20 @@ function drawLine() {
       let dy = particles[a].y - particles[b].y;
       let distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance < particleDistance * 2) {
-        opacity = 1 - distance / (particleDistance * 1.25);
+      if (distance < particleDistance * 1.768) {
+        opacity = 1 - distance / (particleDistance * 2.64);
         const gradient = ctx.createLinearGradient(0, 0, w, h);
-        gradient.addColorStop(0.16, "#4c787e64");
-        gradient.addColorStop(0.32, "#ff964f96");
+        gradient.addColorStop(0.1, "#4c787e64");
+        gradient.addColorStop(0.26, "#31905664");
+        gradient.addColorStop(0.34, "#ff964f64");
+        gradient.addColorStop(0.42, "#ff964f96");
         gradient.addColorStop(0.5, "#e9542696");
-        // gradient.addColorStop(0.5, "#fffdf796");
-        gradient.addColorStop(0.68, "#ff964f96");
-        gradient.addColorStop(0.84, "#4c787e64");
+        gradient.addColorStop(0.58, "#ff964f96");
+        gradient.addColorStop(0.66, "#ff964f64");
+        gradient.addColorStop(0.74, "#31905664");
+        gradient.addColorStop(0.9, "#4c787e64");
         ctx.strokeStyle = gradient;
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 1.16;
         ctx.beginPath();
         ctx.moveTo(particles[a].x, particles[a].y);
         ctx.lineTo(particles[b].x, particles[b].y);
@@ -225,17 +291,22 @@ class Particle {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.size = 2;
+    this.size = 1.64;
     this.baseX = this.x;
     this.baseY = this.y;
-    this.speed = Math.random() * 25 + 5;
+    this.speed = Math.random() * 20 + 5;
   }
   draw() {
     const gradient = ctx.createLinearGradient(0, 0, w, h);
-    gradient.addColorStop(0.16, "#3c3c3c64");
-    gradient.addColorStop(0.32, "#fffdf764");
-    gradient.addColorStop(0.68, "#fffdf764");
-    gradient.addColorStop(0.84, "#3c3c3c64");
+    gradient.addColorStop(0.1, "#4c787e64");
+    gradient.addColorStop(0.26, "#31905664");
+    gradient.addColorStop(0.34, "#ff964f64");
+    gradient.addColorStop(0.42, "#ff964f96");
+    gradient.addColorStop(0.5, "#e9542696");
+    gradient.addColorStop(0.58, "#ff964f96");
+    gradient.addColorStop(0.66, "#ff964f64");
+    gradient.addColorStop(0.74, "#31905664");
+    gradient.addColorStop(0.9, "#4c787e64");
     ctx.fillStyle = gradient;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -270,13 +341,14 @@ class Particle {
 }
 
 init();
+
 window.addEventListener("resize", resizeReset);
 window.addEventListener("mousemove", mousemove);
 window.addEventListener("mouseout", mouseout);
 
 /*End of header background*/
 
-window.addEventListener("load", typeWriter);
+window.addEventListener("load", headerTypeWriter);
 
 const filter_buttons = document.querySelectorAll(".filter-button");
 

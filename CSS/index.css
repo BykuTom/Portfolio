@@ -36,8 +36,10 @@
   --colour-main-transparent: var(--colour-river-ben-blue-transparent);
   --colour-secondary: var(--colour-beetle-green);
   --colour-secondary--transparent: var(--colour-bettle-green-transparent);
+  --colour-secondary--second-shade: var(--colour-sea-green);
   --colour-tertiary: var(--colour-barcelona-orange);
   --colour-tertiary--transparent: var(--colour-barcelona-orange-transparent);
+  --colour-tertiary--second-shade: var(--colour-flame-orange);
   --colour-opposite: var(--colour-baby-powder-white);
   /*Filters*/
   --filter-shadow-drop-brightness: brightness(10)
@@ -98,6 +100,26 @@ img {
   width: 100%;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 4px solid var(--colour-tertiary);
+  -webkit-text-fill-color: var(--colour-tertiary);
+  -webkit-box-shadow: 0 0 0px 1000px var(--colour-secondary) inset;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--colour-tertiary);
+  opacity: 0.75;
+}
 .container {
   position: relative;
   z-index: 5;
@@ -215,14 +237,14 @@ img {
   display: inline-block;
   position: relative;
   padding: 0.85rem 2rem;
-
-  filter: drop-shadow(3px 3px 0 var(--colour-tertiary));
+  color: var(--colour-opposite);
+  filter: drop-shadow(3px 3px 0 var(--colour-secondary));
   background: linear-gradient(
     to bottom right,
-    var(--colour-secondary) 32%,
-    var(--colour-tertiary)
+    var(--colour-secondary--second-shade),
+    var(--colour-secondary)
   );
-  color: var(--colour-opposite);
+
   border-radius: 0.75rem;
   font-size: 1.3rem;
   text-transform: uppercase;
@@ -239,17 +261,19 @@ img {
   right: 0;
   bottom: 0;
   left: 0;
+
   background: linear-gradient(
     to top left,
-    var(--colour-secondary) 32%,
-    var(--colour-tertiary)
+    var(--colour-secondary--second-shade) 32%,
+    var(--colour-secondary)
   );
   z-index: -1;
   transition: opacity 0.5s linear;
   opacity: 0;
 }
 .button:hover {
-  filter: drop-shadow(3px 3px 0 var(--colour-secondary));
+  color: var(--colour-tertiary);
+  filter: drop-shadow(3px 3px 0 var(--colour-secondary--second-shade));
 }
 
 .button:hover::before {
@@ -316,14 +340,21 @@ nav .container {
   display: flex;
   padding: 0.25rem;
   align-items: center;
+  filter: sepia(2);
+}
+.logo:hover {
+  transform: rotate(2880deg);
+  transition: 5s;
+  filter: saturate(2);
 }
 .logo-label {
   margin-left: 1rem;
   font-size: 2.5rem;
   text-transform: uppercase;
-  font-weight: 600;
-  color: var(--colour-tertiary);
-  filter: drop-shadow(3px 3px 0 var(--colour-secondary));
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: var(--colour-opposite);
+  filter: var(--filter-default);
   justify-self: start;
 }
 .links ul {
@@ -351,7 +382,7 @@ nav .container {
   border-bottom: 0.15rem solid var(--colour-tertiary);
 }
 .links a.active:hover {
-  color: var(--colour-opposite);
+  color: var(--colour-tertiary);
   border-bottom: none;
 }
 
@@ -372,17 +403,22 @@ nav .container {
   margin: 1.5rem;
 }
 .header-socials .socials-list {
+  position: relative;
   margin: 1rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 4rem;
+  transition: 1s;
 }
 .social-links {
   padding: 0.75rem;
+  position: relative;
   cursor: pointer;
   color: var(--colour-opposite);
-  transition: 0.3s;
+  opacity: 0;
+  bottom: -300px;
+  transition: bottom 0.7s, opacity 0.75s, 0.3s;
 }
 .social-links:hover {
   color: var(--colour-tertiary);
@@ -469,6 +505,7 @@ main {
 }
 
 .image {
+  left: -500px;
   display: flex;
   position: relative;
   justify-content: center;
@@ -481,7 +518,7 @@ main {
   overflow: hidden;
   max-width: 80%;
   aspect-ratio: 8/9;
-  border: 4px solid var(--colour-opposite);
+  border: 0.25rem solid var(--colour-secondary);
   opacity: 0;
   animation: border-blob-animation 5s linear infinite;
   transition: 1s;
@@ -531,23 +568,35 @@ main {
   padding-bottom: 1rem;
 }
 .about-me-column2-wrapper {
+  position: relative;
+  width: 100%;
+  opacity: 0;
+  bottom: -200px;
+  transition: 1s;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   margin-bottom: 1rem;
 }
-.about-me-column2-wrapper p.text,
+
 .about-me-column2-wrapper a.text {
   padding-bottom: 1rem;
   border: 1px solid transparent;
 }
-
+.about-me-column2-wrapper i {
+  font-size: 1.5rem;
+}
 .about-me-column2-wrapper .text span.button {
-  padding: 0.25rem 0.5rem;
+  padding: 0.7rem;
   margin-right: 0.5rem;
+  border-radius: 50%;
   font-size: 1.25rem;
   transition: 0.3s;
 }
-.about-me-column2-wrapper .text:hover {
+span.button::before {
+  border-radius: 50%;
+}
+.about-me-column2-wrapper .about-me-links:hover {
   color: var(--colour-tertiary);
 }
 
@@ -555,18 +604,33 @@ main {
   width: 21rem;
 }
 .about-me-title {
+  position: relative;
+  top: -200px;
+  opacity: 0;
   text-align: center;
   font-size: 2.25rem;
   line-height: 1.2;
   font-family: var(--unique-font);
   color: var(--colour-opposite);
   filter: var(--filter-default-big);
+  transition: 0.75s;
 }
 .about-me-column2 .text {
   padding: 1rem;
-  border-bottom: 4px solid var(--colour-opposite);
+  border-bottom: 4px solid var(--colour-secondary);
 }
-
+.about-me-text {
+  position: relative;
+  opacity: 0;
+  right: -300px;
+  transition: 1s;
+}
+.cv-button {
+  position: relative;
+  opacity: 0;
+  bottom: -300px;
+  transition: 1s;
+}
 /*End of About me*/
 /*Records*/
 
@@ -578,7 +642,7 @@ main {
   position: relative;
   background: var(--background-image), var(--colour-main);
   backdrop-filter: blur(2px);
-  border: 0.25rem solid var(--colour-opposite);
+  border: 0.25rem solid var(--colour-secondary);
   background-clip: content-box;
   background-position-x: 48px;
   background-position-y: 48px;
@@ -598,13 +662,14 @@ main {
   height: 180px;
   margin: 0 auto;
   border-radius: 50%;
-  border: 0.25rem solid var(--colour-opposite);
+  border: 0.25rem solid var(--colour-tertiary);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: var(--colour-opposite);
-  color: var(--colour-main);
-  box-shadow: 0 0 0 1rem #fffdf764;
+  font-weight: bold;
+  background-color: var(--colour-secondary);
+  color: var(--colour-tertiary);
+  box-shadow: 0 0 0 1rem var(--colour-secondary--transparent);
   transform: scale(0.1);
   transition: 0.5s;
   opacity: 0;
@@ -649,7 +714,7 @@ main {
   min-width: 300px;
   max-width: 400px;
   height: 300px;
-  transition: 0.5s;
+  transition: 0.75s;
   margin: 2rem;
 }
 .card-wrapper:hover {
@@ -679,7 +744,7 @@ main {
 .card {
   position: relative;
   width: 100%;
-  background-color: var(--colour-bettle-green-transparent);
+  background-color: var(--colour-main-transparent);
   display: flex;
   align-items: end;
   justify-content: center;
@@ -777,13 +842,13 @@ main {
   position: absolute;
   bottom: 100px;
   font-size: 2.25rem;
-  transition: linear 0.3s;
+  transition: linear 0.5s;
 }
 .card-content .text {
   opacity: 0;
   font-size: 1.25rem;
   padding: 1rem;
-  transition: ease-out 0.3s;
+  transition: ease-out 0.55s;
   filter: drop-shadow(3px 3px 0 var(--colour-main));
 }
 
@@ -846,7 +911,7 @@ main {
 }
 .tech-stack {
   max-width: var(--page-width);
-  padding: 1rem;
+  padding: 1rem 2rem;
 }
 .tech-stack-wrapper {
   min-height: 280px;
@@ -897,7 +962,7 @@ main {
   max-width: var(--page-width);
   width: 100%;
   display: flex;
-  background-color: var(--colour-bettle-green-transparent);
+  background-color: var(--colour-main-transparent);
   flex-wrap: wrap;
   height: 100%;
 }
@@ -961,7 +1026,7 @@ main {
 
 .portfolio {
   position: relative;
-  min-width: var(--page-width);
+  max-width: var(--page-width);
   width: 100%;
 }
 .portfolio .container {
@@ -1014,7 +1079,14 @@ main {
   border-radius: 2rem;
   transition: 0.3s;
 }
-
+.filter-button::before {
+  display: block;
+  content: attr(data-text);
+  font-weight: bold;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
 .filter-button.active {
   background-color: var(--colour-opposite);
   color: var(--colour-tertiary);
@@ -1116,4 +1188,123 @@ main {
   color: var(--colour-tertiary);
 }
 /* End of Portfolio */
+/* Contact */
+.contact {
+  position: relative;
+  z-index: 5;
+  max-width: var(--page-width);
+  width: 100%;
+  margin: 2rem 8.5rem;
+  padding: 8rem 2rem;
+  background-color: var(--colour-main-transparent);
+  backdrop-filter: blur(2px);
+  background-clip: padding-box;
+  background-position-x: 48px;
+  background-position-y: 48px;
+  /* background-clip: content-box; */
+  background-origin: content-box;
+}
+
+.contact-box {
+  width: 100%;
+
+  background: var(--background-image), var(--colour-main);
+  border-radius: 5rem;
+  padding: 3.5rem 3rem;
+  border: 0.25rem solid var(--colour-secondary);
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+}
+.contact-information {
+  padding-right: 2rem;
+}
+.contact-information p {
+  color: var(--colour-opposite);
+}
+.contact-form {
+  padding-left: 2rem;
+}
+.contact-info .title::after {
+  left: 0;
+  transform: initial;
+}
+.information-wrapper {
+  margin-top: 2rem;
+}
+.information {
+  display: flex;
+  align-items: center;
+}
+.information:not(:last-child) {
+  margin-bottom: 1.3rem;
+}
+.contact-icon {
+  min-width: 64px;
+  height: 64px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: var(--colour-secondary);
+  color: var(--colour-main);
+  text-align: center;
+  font-size: 1.4rem;
+  margin-right: 1rem;
+}
+.contact-icon i {
+  font-size: 2rem;
+  line-height: 64px;
+  color: var(--colour-tertiary);
+}
+.info-text {
+  font-size: 1.3rem;
+  display: inline-block;
+}
+
+.contact-form .title::after {
+  display: none;
+}
+
+.contact-form .title {
+  margin: 0;
+}
+.contact-form .row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-column-gap: 0.6rem;
+}
+
+.contact-input {
+  padding: 1rem 2rem;
+  margin: 0.6rem 0;
+  border: none;
+  outline: none;
+  background: var(--colour-beetle-green);
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  border-radius: 2rem;
+  color: var(--colour-tertiary);
+  border: 4px solid transparent;
+  transition: border linear 0.25s;
+}
+.contact-form input:placeholder-shown,
+.contact-form textarea:placeholder-shown {
+  border-color: var(--colour-tertiary);
+}
+
+.contact-input:focus {
+  border: 4px solid var(--colour-tertiary);
+}
+
+.contact-input:not(:placeholder-shown):invalid {
+  border-color: var(--colour-bittersweet-red);
+}
+
+.contact-form .button {
+  width: 8rem;
+  position: relative;
+  left: calc(50% - 4rem);
+  margin-top: 0.6rem;
+}
+/*End of Contact*/
 /* End of Main */

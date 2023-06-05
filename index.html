@@ -23,7 +23,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="icon" href="IMG/WebsiteLogo.png" type="image/x-icon" />
+    <link rel="icon" href="IMG/myLogo.png" type="image/x-icon" />
   </head>
   <body>
     <header>
@@ -60,10 +60,9 @@
             <img class="up-right" src="IMG/Lshape.png" alt="" />
           </div>
           <section class="header-text">
-            <h1 class="header-title">Tomasz Wolak</h1>
+            <h1 class="header-title"></h1>
             <div class="animated-subtitle">
-              <span class="animated-subtitle--text beggining-text"
-                >A Professional</span
+              <span class="animated-subtitle--text beggining-text"></span
               ><span class="animated-subtitle--text end-text"></span>
               <span class="blinker">&#9632;</span>
             </div>
@@ -115,7 +114,7 @@
               <h2 class="about-me-title">
                 I'm Tomasz Wolak, a Front-end & Mobile software engineer
               </h2>
-              <p class="text">
+              <p class="text about-me-text">
                 I am a software engineer based in the United Kingdom and I have
                 been building application websites with creativity and problem
                 solving in hopes to bring products to life. I can help translate
@@ -124,14 +123,14 @@
                 Check out my projects to take a look at what I am capable of.
               </p>
               <div class="about-me-column2-wrapper">
-                <p class="text">
-                  <span class="button">Location:</span> Noth Lincolnshire, UK
-                </p>
-                <a href=mailto:“tom.wolak@outlook.com" class="text"
-                  ><span class="button">Email:</span> tom.wolak@outlook.com</a
-                >
+                <a href="#" class="text about-me-links">
+                  <span class="button"><i class="fa-solid fa-map-location-dot"></i></span> Scunthorpe
+                </a>
+                <a href="#" class="text about-me-links"
+                  ><span class="button"><i class="fa-solid fa-envelope"></i></span>Contact me via an Email
+                  </a>
               </div>
-              <a href="#" class="button">Download CV</a>
+              <a href="#" class="button cv-button">Download CV</a>
             </div>
           </div>
         </div>
@@ -278,18 +277,46 @@
           <div class="section-header">
             <h3 class="title" data-title="My works"><p>Portfolio</p></h3>
             <div class="filter">
-              <button class="filter-button active" data-filter="*">ALL</button>
-              <button class="filter-button" data-filter=".JavaScript">
+              <button
+                class="filter-button active"
+                data-text="All"
+                data-filter="*"
+              >
+                ALL
+              </button>
+              <button
+                class="filter-button"
+                data-text="Vanilla JavaScript"
+                data-filter=".JavaScript"
+              >
                 Vanilla JavaScript
               </button>
-              <button class="filter-button" data-filter=".React">React</button>
-              <button class="filter-button" data-filter=".Next-JS">
+              <button
+                class="filter-button"
+                data-text="React"
+                data-filter=".React"
+              >
+                React
+              </button>
+              <button
+                class="filter-button"
+                data-text="Next.JS"
+                data-filter=".Next-JS"
+              >
                 Next.JS
               </button>
-              <button class="filter-button" data-filter=".Tailwind">
+              <button
+                class="filter-button"
+                data-text="Tailwind"
+                data-filter=".Tailwind"
+              >
                 Tailwind
               </button>
-              <button class="filter-button" data-filter=".TypeScript">
+              <button
+                class="filter-button"
+                data-text="TypeScript"
+                data-filter=".TypeScript"
+              >
                 TypeScript
               </button>
             </div>
@@ -483,6 +510,86 @@
             <img class="down-right" src="IMG/Lshape.png" alt="" />
             <img class="up-left" src="IMG/Lshape.png" alt="" />
             <img class="up-right" src="IMG/Lshape.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section class="contact">
+        <div class="section-corners">
+          <img class="down-left" src="IMG/Lshape.png" alt="" />
+          <img class="down-right" src="IMG/Lshape.png" alt="" />
+          <img class="up-left" src="IMG/Lshape.png" alt="" />
+          <img class="up-right" src="IMG/Lshape.png" alt="" />
+        </div>
+        <div class="container">
+          <div class="contact-box">
+            <section class="contact-information">
+              <h3 class="title">Get in touch</h3>
+              <p class="text">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Reiciendis mollitia provident, commodi, eum earum, cupiditate
+                sapiente quibusdam ullam ex officiis optio alias aspernatur
+                magnam sunt quaerat quae? Placeat, ipsa eius.
+              </p>
+              <div class="information-wrapper">
+                <div class="information">
+                  <div class="contact-icon">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                  </div>
+                  <p class="info-text">Scunthorpe, North Lincolnshire, UK</p>
+                </div>
+  
+                <div class="information">
+                  <div class="contact-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <p class="info-text">My Email</p>
+                </div>
+  
+                <div class="information">
+                  <div class="contact-icon">
+                    <i class="fa-solid fa-phone"></i>
+                  </div>
+                  <p class="info-text">Phone</p>
+                </div>
+            </section>
+            <section class="contact-form">
+              <h3 class="title">Contact Me</h3>
+              <div class="row">
+                <input
+                  type="text"
+                  class="contact-input"
+                  placeholder="First Name" required
+                />
+                <input
+                  type="text"
+                  class="contact-input"
+                  placeholder="Last Name" required
+                />
+              </div>
+              <div class="row">
+                <input
+                  type="text"
+                  class="contact-input"
+                  placeholder="Phone" required
+                />
+                <input
+                  type="text"
+                  class="contact-input"
+                  placeholder="Email" required
+                />
+              </div>
+              <div class="row">
+                <textarea
+                  name="message"
+                  class="contact-input textarea"
+                  placeholder="Message" required
+                ></textarea>
+              </div>
+              <a href="#" class="button">Send</a>
+            </section>
+ 
+            </div>
           </div>
         </div>
       </section>
