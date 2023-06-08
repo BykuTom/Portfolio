@@ -15,6 +15,11 @@
       defer
     ></script>
     <script src="JS/isotope.pkgd.min.js" defer></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+      defer
+    ></script>
     <script src="JS/index.js" defer></script>
     <link
       rel="stylesheet"
@@ -23,7 +28,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="icon" href="IMG/myLogo.png" type="image/x-icon" />
+    <link rel="icon" href="IMG/NewLogo2.pngg" type="image/x-icon" />
   </head>
   <body>
     <header>
@@ -33,9 +38,9 @@
         <section class="container" id="home-sectionv">
           <section class="nav-logo">
             <div class="logo">
-              <img src="./IMG/myLogo.png" alt="logo.png" />
+              <img src="./IMG/NewLogo2.png" alt="logo.png" />
             </div>
-            <label class="logo-label">Wolak.dev</label>
+            <label class="logo-label">{Wolak.dev}</label>
           </section>
 
           <section class="links">
@@ -45,14 +50,18 @@
               <li><a href="#Skills-section">Skills</a></li>
               <li><a href="#">My Works</a></li>
               <li><a href="#">Testamonials</a></li>
-              <li><a href="#" class="active button">Contact me</a></li>
+              <li>
+                <a href="#" class="active button" data-button="Contact Me"
+                  >Contact me</a
+                >
+              </li>
             </ul>
           </section>
         </section>
       </nav>
       <section class="header-content">
         <div class="header-background-center"></div>
-        <section class="container grid-2">
+        <section class="container">
           <div class="section-corners">
             <img class="down-left" src="IMG/Lshape.png" alt="" />
             <img class="down-right" src="IMG/Lshape.png" alt="" />
@@ -71,16 +80,20 @@
               <ul class="socials-list">
                 <li>
                   <a href="#" class="social-links"
-                    ><i class="fa-brands fa-linkedin"></i
+                    ><i class="fa-brands fa-linkedin fa-initial"></i
+                    ><i class="fa-brands fa-linkedin fa-hover"></i
                   ></a>
                   <a href="#" class="social-links">
-                    <i class="fa-brands fa-square-facebook"></i
+                    <i class="fa-brands fa-square-facebook fa-initial"></i
+                    ><i class="fa-brands fa-square-facebook fa-hover"></i
                   ></a>
                   <a href="#" class="social-links">
-                    <i class="fa-brands fa-square-instagram"></i
+                    <i class="fa-brands fa-square-instagram fa-initial"></i
+                    ><i class="fa-brands fa-square-instagram fa-hover"></i
                   ></a>
                   <a href="#" class="social-links">
-                    <i class="fa-brands fa-square-github"></i
+                    <i class="fa-brands fa-square-github fa-initial"></i
+                    ><i class="fa-brands fa-square-github fa-hover"></i
                   ></a>
                 </li>
               </ul>
@@ -124,13 +137,20 @@
               </p>
               <div class="about-me-column2-wrapper">
                 <a href="#" class="text about-me-links">
-                  <span class="button"><i class="fa-solid fa-map-location-dot"></i></span> Scunthorpe
+                  <span class="button"
+                    ><i class="fa-solid fa-map-location-dot"></i
+                  ></span>
+                  Scunthorpe
                 </a>
                 <a href="#" class="text about-me-links"
-                  ><span class="button"><i class="fa-solid fa-envelope"></i></span>Contact me via an Email
-                  </a>
+                  ><span class="button"
+                    ><i class="fa-solid fa-envelope"></i></span
+                  >Contact me via an Email
+                </a>
               </div>
-              <a href="#" class="button cv-button">Download CV</a>
+              <a href="#" class="button cv-button" data-button="Download CV"
+                >Download CV</a
+              >
             </div>
           </div>
         </div>
@@ -513,7 +533,6 @@
           </div>
         </div>
       </section>
-
       <section class="contact">
         <div class="section-corners">
           <img class="down-left" src="IMG/Lshape.png" alt="" />
@@ -524,13 +543,14 @@
         <div class="container">
           <div class="contact-box">
             <section class="contact-information">
-              <h3 class="title">Get in touch</h3>
+              <h3 class="title"><p>Get in touch</p></h3>
               <p class="text">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 Reiciendis mollitia provident, commodi, eum earum, cupiditate
                 sapiente quibusdam ullam ex officiis optio alias aspernatur
                 magnam sunt quaerat quae? Placeat, ipsa eius.
               </p>
+
               <div class="information-wrapper">
                 <div class="information">
                   <div class="contact-icon">
@@ -538,57 +558,79 @@
                   </div>
                   <p class="info-text">Scunthorpe, North Lincolnshire, UK</p>
                 </div>
-  
+
                 <div class="information">
                   <div class="contact-icon">
                     <i class="fa-solid fa-envelope"></i>
                   </div>
                   <p class="info-text">My Email</p>
                 </div>
-  
+
                 <div class="information">
                   <div class="contact-icon">
                     <i class="fa-solid fa-phone"></i>
                   </div>
                   <p class="info-text">Phone</p>
                 </div>
+              </div>
             </section>
-            <section class="contact-form">
-              <h3 class="title">Contact Me</h3>
-              <div class="row">
-                <input
-                  type="text"
-                  class="contact-input"
-                  placeholder="First Name" required
-                />
-                <input
-                  type="text"
-                  class="contact-input"
-                  placeholder="Last Name" required
-                />
-              </div>
-              <div class="row">
-                <input
-                  type="text"
-                  class="contact-input"
-                  placeholder="Phone" required
-                />
-                <input
-                  type="text"
-                  class="contact-input"
-                  placeholder="Email" required
-                />
-              </div>
-              <div class="row">
-                <textarea
-                  name="message"
-                  class="contact-input textarea"
-                  placeholder="Message" required
-                ></textarea>
-              </div>
-              <a href="#" class="button">Send</a>
-            </section>
- 
+            <div class="contact-form-wrapper">
+              <form class="contact-form">
+                <h3 class="title"><p>Contact Me</p></h3>
+                <div class="row">
+                  <div
+                    class="contact-form--message-box--contact-name error-message"
+                  ></div>
+                  <div
+                    class="contact-form--message-box--contact-surname error-message"
+                  ></div>
+                  <input
+                    type="text"
+                    class="contact-input contact-name"
+                    placeholder="First Name"
+                  />
+                  <input
+                    type="text"
+                    class="contact-input contact-surname"
+                    placeholder="Last Name"
+                  />
+                </div>
+                <div class="row">
+                  <div
+                    class="contact-form--message-box--contact-email error-message"
+                  ></div>
+                  <input
+                    type="text"
+                    class="contact-input contact-phone"
+                    placeholder="Phone"
+                  />
+                  <input
+                    type="text"
+                    class="contact-input contact-email"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="contact-message-wrapper row">
+                  <div
+                    class="contact-form--message-box--contact-message error-message"
+                  ></div>
+                  <textarea
+                    name="message"
+                    class="contact-input textarea contact-message"
+                    placeholder="Message"
+                  ></textarea>
+                  <div class="contact-message--character-counter">
+                    1000 / 1000
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  class="button contact-button"
+                  data-button="Send"
+                >
+                  Send
+                </button>
+              </form>
             </div>
           </div>
         </div>

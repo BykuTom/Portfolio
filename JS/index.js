@@ -13,9 +13,9 @@ const animatedText = document.querySelector(".end-text");
 const blinker = document.querySelector(".blinker");
 
 const typeWriterText = [
-  "Software Engineer",
-  "Front-End Developer",
-  "Web Developer",
+  "Software Engineer }",
+  "Front-End Developer }",
+  "Web Developer }",
 ];
 let arrayIndex = 0;
 let textIndex = 0;
@@ -69,7 +69,7 @@ const headerTitle = document.querySelector(".header-title");
 const begginingSubText = document.querySelector(".beggining-text");
 const socialLinkIconsNodeList = document.querySelectorAll(".social-links"); // grab nodelist
 const socialLinkIconsArray = [...socialLinkIconsNodeList]; // use spread operator to convert it into an array
-const subText = "A Professional";
+const subText = "{ A Professional";
 const myName = "Tomasz Wolak";
 let headerTextIndex = 0;
 let subTextIndex = 1;
@@ -115,6 +115,7 @@ headerTypeWriter = () => {
 //typeWriter();
 /*End of Header Section Observer*/
 /* About-me Section Observer*/
+const aboutMeBox = document.querySelector(".about-me");
 const aboutMeImage = document.querySelector(".image");
 const aboutMeTitle = document.querySelector(".about-me-title");
 const aboutMeText = document.querySelector(".about-me-text");
@@ -139,10 +140,10 @@ const aboutMeObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.5 }
+  { threshold: 0.64 }
 );
 
-aboutMeObserver.observe(aboutMeImage);
+aboutMeObserver.observe(aboutMeBox);
 
 /*End of About-me section Onserver */
 /* Record Section Observer*/
@@ -294,7 +295,7 @@ class Particle {
     this.size = 1.64;
     this.baseX = this.x;
     this.baseY = this.y;
-    this.speed = Math.random() * 20 + 5;
+    this.speed = Math.random() * 25 + 5;
   }
   draw() {
     const gradient = ctx.createLinearGradient(0, 0, w, h);
@@ -347,12 +348,10 @@ window.addEventListener("mousemove", mousemove);
 window.addEventListener("mouseout", mouseout);
 
 /*End of header background*/
-
+/*start of Portfolio filter*/
 window.addEventListener("load", headerTypeWriter);
 
 const filter_buttons = document.querySelectorAll(".filter-button");
-
-console.log(filter_buttons);
 
 filter_buttons.forEach((btn) =>
   btn.addEventListener("click", () => {
@@ -366,18 +365,190 @@ filter_buttons.forEach((btn) =>
     });
   })
 );
+/*End of Portfolio filter*/
+/*End of Contact Form*/
 
-/* const loadAnimatedText = () => {
-  setTimeout(() => {
-    animatedText.textContent = "Software Engineer";
-  }, 0);
-  setTimeout(() => {
-    animatedText.textContent = "Front End Developer";
-  }, 4500);
-  setTimeout(() => {
-    animatedText.textContent = "Web Developer";
-  }, 9000);
-};
+const contactName = document.querySelector(".contact-name");
+const contactNameError = document.querySelector(
+  ".contact-form--message-box--contact-name"
+);
 
-loadAnimatedText();
-setInterval(loadAnimatedText, 13500); */
+const contactSurname = document.querySelector(".contact-surname");
+const contactSurnameError = document.querySelector(
+  ".contact-form--message-box--contact-surname"
+);
+
+const contactPhone = document.querySelector(".contact-phone");
+const contactEmail = document.querySelector(".contact-email");
+const contactEmailError = document.querySelector(
+  ".contact-form--message-box--contact-email"
+);
+const contactMessage = document.querySelector(".contact-message");
+const contactMessageError = document.querySelector(
+  ".contact-form--message-box--contact-message"
+);
+const contactMessageCounter = document.querySelector(
+  ".contact-message--character-counter"
+);
+
+contactName.addEventListener("input", () => {
+  console.log("contact Name");
+  contactName.style.borderColor = "transparent";
+});
+contactSurname.addEventListener("input", () => {
+  contactSurname.style.borderColor = "transparent";
+});
+contactEmail.addEventListener("input", () => {
+  contactEmail.style.borderColor = "transparent";
+});
+contactMessage.addEventListener("input", () => {
+  contactMessage.style.borderColor = "transparent";
+});
+
+const contactForm = document
+  .querySelector(".contact-form")
+  .addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
+const contactSendButton = document
+  .querySelector(".contact-button")
+  .addEventListener("click", () => {
+    validateForm();
+  });
+
+const publickey = "ss08N86-3SfBX5n9B";
+const templateID = "template_fbvebb3";
+const serviceID = "service_qrqd48i";
+contactMessage.addEventListener("input", function () {
+  const remainingChars = 1000 - contactMessage.value.length;
+  contactMessageCounter.textContent = remainingChars + " / 1000";
+  if (remainingChars < 0) {
+    contactMessageCounter.style.color = "#ff5a5f";
+  } else if (remainingChars >= 0) {
+    contactMessageCounter.style.color = "#ff9500";
+  }
+});
+function containsSpecialChars(string) {
+  const regex = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+  return regex.test(string);
+}
+function changeOpacity(element) {
+  element.style.opacity = 1;
+  setTimeout(() => {
+    element.style.opacity = "0";
+  }, 5000);
+}
+function validateForm() {
+  let boolArray = [true, true, true, true];
+  let boolMap;
+  /* function isArrayAllTrue(array){
+    return array.every(element => element === true);
+  } */
+  if (
+    contactName.value.length <= 2 ||
+    contactName.value.length >= 15 ||
+    contactName.value.includes(" ") ||
+    containsSpecialChars(contactName.value)
+  ) {
+    boolArray[0] = false;
+    console.log(
+      "Your Name is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters."
+    );
+    contactNameError.innerText =
+      "* Name is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters.";
+    changeOpacity(contactNameError);
+    contactName.style.borderColor = "#ff5a5f";
+  }
+  if (
+    contactSurname.value.length <= 2 ||
+    contactSurname.value.length >= 15 ||
+    contactSurname.value.includes(" ") ||
+    containsSpecialChars(contactSurname.value)
+  ) {
+    boolArray[1] = false;
+    console.log(
+      "Your Surname is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters."
+    );
+    contactSurnameError.innerText =
+      "* Surname is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters.";
+    changeOpacity(contactSurnameError);
+    contactSurname.style.borderColor = "#ff5a5f";
+  }
+  if (
+    contactEmail.value === "" ||
+    contactEmail.value == null ||
+    contactSurname.value.length <= 4 ||
+    contactEmail.value.length >= 50 ||
+    !contactEmail.value.includes("@")
+  ) {
+    boolArray[2] = false;
+    console.log(
+      "Your Email is required, it has to be longer than 4 and shorter than 50 characters, and it has to include @."
+    );
+    contactEmailError.innerText =
+      "* Email is required, it has to be longer than 4 and shorter than 50 characters, and it has to include @.";
+    changeOpacity(contactEmailError);
+    contactEmail.style.borderColor = "#ff5a5f";
+  }
+  if (
+    contactMessage.value === "" ||
+    contactMessage.value == null ||
+    contactMessage.value.length <= 20 ||
+    contactMessage.value.length >= 1000
+  ) {
+    boolArray[3] = false;
+    console.log(
+      "Message is required, it has to be longer than 20 and shorter than 1000 characters."
+    );
+    contactMessageError.innerText =
+      "* Message is required, it has to be longer than 20 and shorter than 1000 characters.";
+    changeOpacity(contactMessageError);
+    contactMessage.style.borderColor = "#ff5a5f";
+  }
+  if (!boolArray.includes(false)) {
+    console.log("Attempting to send...");
+    defineParameters();
+  } else {
+    boolMap = boolArray.reduce((acc, val, i) => {
+      acc[i] = val;
+      return acc;
+    }, {});
+    console.log(boolMap);
+  }
+}
+
+function defineParameters() {
+  let contactParameters = {
+    from_name: contactName.value + " " + contactSurname.value,
+    email_id: contactEmail.value,
+    message: contactMessage.value,
+    phone_id: contactPhone.value,
+  };
+  sendEmail(contactParameters);
+}
+
+function sendEmail(contactParameters) {
+  emailjs.send(serviceID, templateID, contactParameters, publickey).then(
+    function (response) {
+      console.log("SUCCESS!", response.status, response.text);
+    },
+    function (error) {
+      console.log("FAILED...", error);
+    }
+  );
+}
+
+/*Contact Form*/
+
+/* contactName.setCustomValidity(
+      "Your Name is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters."
+    );
+    contactSurname.setCustomValidity(
+      "Your Surname is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters."
+    );
+    contactEmail.setCustomValidity(
+      "Your Email is required, it has to be longer than 4 and shorter than 50 characters, and it has to include @."
+    );
+    contactMessage.setCustomValidity(
+      "Message is required, it has to be longer than 20 and shorter than 1000 characters."
+    ); */
