@@ -221,6 +221,7 @@ textarea::-webkit-input-placeholder {
     var(--colour-barcelona-orange),
     var(--colour-flame-orange) 70%
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -414,6 +415,7 @@ nav .container {
     var(--colour-barcelona-orange),
     var(--colour-flame-orange) 70%
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -517,6 +519,7 @@ header {
     var(--colour-barcelona-orange),
     var(--colour-flame-orange) 70%
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   backdrop-filter: blur(2px);
@@ -530,6 +533,7 @@ header {
 }
 .footer-social-links .fa-initial::before {
   background: var(--colour-opposite);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -553,6 +557,7 @@ header {
     var(--colour-barcelona-orange),
     var(--colour-flame-orange) 70%
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   top: 0;
@@ -597,6 +602,7 @@ header {
     var(--colour-barcelona-orange),
     var(--colour-flame-orange) 90%
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -608,12 +614,14 @@ header {
     var(--colour-barcelona-orange),
     var(--colour-flame-orange) 80%
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .blinker {
   /* filter: var(--filter-default); */
   background: var(--colour-pale-orange);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 3.5rem;
@@ -813,6 +821,7 @@ span.button::before {
     var(--colour-pastel-orange),
     var(--colour-pale-orange)
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: 0.75s;
@@ -1390,6 +1399,16 @@ span.button::before {
 .contact-information p {
   color: var(--colour-opposite);
 }
+.information-row-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.28rem;
+}
+.information-row-wrapper iframe {
+  width: 400px;
+  height: 300px;
+  border: 2px solid var(--colour-tertiary);
+}
 .information-wrapper {
   margin-top: 2rem;
 }
@@ -1625,6 +1644,7 @@ span.button::before {
     var(--colour-barcelona-orange) 32%,
     var(--colour-flame-orange) 64%
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -1696,7 +1716,7 @@ span.button::before {
 .footer-follow-me p.text {
   border: none;
   max-width: none;
-  padding: 0;
+  padding: 0.64rem 3rem;
   margin: 0;
 }
 .footer-row {
@@ -1706,10 +1726,10 @@ span.button::before {
 }
 .footer-email-input-wrap {
   width: 100%;
-  height: 3rem;
+  height: fit-content;
   display: grid;
-  grid-template-columns: auto 2rem;
-  padding: 1rem 3rem;
+  grid-template-columns: auto 3rem;
+  padding: 0.64rem 3rem;
 }
 .footer-email-input {
   background-color: var(--colour-secondary--transparent);
@@ -1720,14 +1740,16 @@ span.button::before {
   font-weight: 500;
   color: var(--colour-tertiary);
   font-size: 1.2rem;
+  padding: 1.28rem;
 }
 .email-input-submit {
   font-size: 2rem;
   color: var(--colour-opposite);
   border-radius: 0 0.64rem 0.64rem 0;
   padding: 0.64rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-iframe .sideBySideWrap input {
-  border: 2px solid var(--colour-secondary);
-}
+
 /*End of footer*/

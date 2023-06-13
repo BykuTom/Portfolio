@@ -13,8 +13,8 @@ const animatedText = document.querySelector(".end-text");
 const blinker = document.querySelector(".blinker");
 
 const typeWriterText = [
-  "Software Engineer }",
   "Front-End Developer }",
+  "Software Engineer }",
   "Web Developer }",
 ];
 let arrayIndex = 0;
@@ -74,15 +74,7 @@ const myName = "Tomasz Wolak";
 let headerTextIndex = 0;
 let subTextIndex = 1;
 let socialLinkIndex = 0;
-/* const headerObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting){
 
-    }
-  });
-},
-{ threshold: 1 }
-); */
 socialLinkLoader = () => {
   //console.log(socialLinkIconsArray[socialLinkIndex]);
 
@@ -111,7 +103,7 @@ headerTypeWriter = () => {
     }
   }
 };
-//typeWriter();
+
 /*End of Header Section Observer*/
 /* About-me Section Observer*/
 const aboutMeBox = document.querySelector(".about-me");
@@ -387,15 +379,8 @@ class Particle {
   }
 }
 
-init();
-
-window.addEventListener("resize", resizeReset);
-window.addEventListener("mousemove", mousemove);
-window.addEventListener("mouseout", mouseout);
-
 /*End of header background*/
 /*start of Portfolio filter*/
-window.addEventListener("load", headerTypeWriter);
 
 const filter_buttons = document.querySelectorAll(".filter-button");
 
@@ -573,3 +558,21 @@ function sendEmail(contactParameters) {
 }
 
 /*Contact Form*/
+/*Window Events*/
+window.addEventListener("resize", resizeReset);
+window.addEventListener("mousemove", mousemove);
+window.addEventListener("mouseout", mouseout);
+window.addEventListener("load", headerTypeWriter);
+window.onload = function () {
+  init();
+
+  const phoneText = document.querySelector(".phone-text");
+  const emailText = document.querySelector(".email-text");
+
+  let emailDecrypted = window.atob(emailText.innerText);
+  let phoneDecrypted = window.atob(phoneText.innerText);
+
+  phoneText.innerText = phoneDecrypted;
+  emailText.innerText = emailDecrypted;
+};
+/*End of Window Events */
