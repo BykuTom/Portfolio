@@ -27,9 +27,9 @@ let textLenght;
 typeWriter = () => {
   if (blinker.style.animationPlayState === "running") {
     blinker.style.animationPlayState = "paused";
-    console.log(blinker.style.opacity);
+    //console.log(blinker.style.opacity);
     blinker.style.opacity = "1";
-    console.log(blinker.style.opacity);
+    //console.log(blinker.style.opacity);
   }
   if (arrayIndex >= 3) {
     arrayIndex = 0;
@@ -84,7 +84,7 @@ let socialLinkIndex = 0;
 { threshold: 1 }
 ); */
 socialLinkLoader = () => {
-  console.log(socialLinkIconsArray[socialLinkIndex]);
+  //console.log(socialLinkIconsArray[socialLinkIndex]);
 
   socialLinkIconsArray[socialLinkIndex].style.opacity = 1;
   socialLinkIconsArray[socialLinkIndex].style.bottom = "0px";
@@ -103,11 +103,10 @@ headerTypeWriter = () => {
     setTimeout(headerTypeWriter, delay / 2);
   } else {
     begginingSubText.textContent = subText.substring(0, subTextIndex);
-
+    socialLinkLoader();
     if (subTextIndex++ != subText.length) {
       setTimeout(headerTypeWriter, delay);
     } else {
-      socialLinkLoader();
       typeWriter();
     }
   }
@@ -119,8 +118,24 @@ const aboutMeBox = document.querySelector(".about-me");
 const aboutMeImage = document.querySelector(".image");
 const aboutMeTitle = document.querySelector(".about-me-title");
 const aboutMeText = document.querySelector(".about-me-text");
-const aboutMeWrapper = document.querySelector(".about-me-column2-wrapper");
+const aboutMeButtons = document.querySelector(".about-me-buttons");
 const cvButton = document.querySelector(".cv-button");
+
+const techstackIconTray = document.querySelector(".tech-stack-icon-container");
+const techstackIconsNodeList = document.querySelectorAll(".tech-stack-icons");
+const techstackIconArray = [...techstackIconsNodeList];
+let techstackIconIndex = 0;
+
+techstackIconLoader = () => {
+  //console.log(techstackIconArray[techstackIconIndex]);
+
+  techstackIconArray[techstackIconIndex].style.opacity = 1;
+  techstackIconArray[techstackIconIndex].style.left = "0px";
+  if (techstackIconIndex != techstackIconArray.length - 1) {
+    techstackIconIndex++;
+    setTimeout(techstackIconLoader, 100);
+  }
+};
 
 const aboutMeObserver = new IntersectionObserver(
   (entries) => {
@@ -133,8 +148,10 @@ const aboutMeObserver = new IntersectionObserver(
         aboutMeTitle.style.top = "0px";
         aboutMeText.style.opacity = "1";
         aboutMeText.style.right = "0px";
-        aboutMeWrapper.style.opacity = "1";
-        aboutMeWrapper.style.bottom = "0px";
+        techstackIconTray.style.opacity = "1";
+        techstackIconLoader();
+        aboutMeButtons.style.opacity = "1";
+        aboutMeButtons.style.bottom = "0px";
         cvButton.style.opacity = "1";
         cvButton.style.bottom = "0px";
       }
@@ -150,27 +167,56 @@ aboutMeObserver.observe(aboutMeBox);
 const record_wrap = document.querySelector(".records");
 const records_numbers = document.querySelectorAll(".number");
 const record_Circles = document.querySelectorAll(".record-circle");
+const recordProgressCircles = document.querySelectorAll(".record-wrap");
+
+let currentNumber = [0, 0, 0, 0];
+let incrementSpeed = [30, 25, 35, 20];
+let circleProggressNumber = 0;
 
 record_Circles.forEach((circle) => circle.classList.remove("active"));
+
+console.log(recordProgressCircles);
 
 const recordsObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log("visibile");
         records_numbers.forEach((number) => {
           const UpdateCount = () => {
-            let currentNumber = Number(number.innerText);
             let maximumNumber = Number(number.dataset.number);
-            const increment = Math.ceil(Math.sqrt(maximumNumber) / 15);
-            if (currentNumber < maximumNumber) {
-              number.innerText = currentNumber + increment;
-              setTimeout(UpdateCount, 1);
+            const increment =
+              maximumNumber / incrementSpeed[Number(number.dataset.circle)];
+
+            if (currentNumber[Number(number.dataset.circle)] < maximumNumber) {
+              currentNumber[Number(number.dataset.circle)] =
+                currentNumber[Number(number.dataset.circle)] + increment;
+
+              number.innerText = Math.floor(
+                currentNumber[Number(number.dataset.circle)]
+              );
+
+              let progressValue =
+                currentNumber[Number(number.dataset.circle)] / maximumNumber;
+              let progressEndValue = progressValue * 100;
+
+              recordProgressCircles[
+                number.dataset.circle
+              ].style.background = `conic-gradient(#ff9500 0deg, #e95426 ${
+                progressEndValue * 3.6
+              }deg, #fffdf7 ${progressEndValue * 3.6}deg)`;
+
+              setTimeout(UpdateCount, 10);
             } else {
+              recordProgressCircles[
+                number.dataset.circle
+              ].style.background = `conic-gradient(#ff9500 0deg, #e95426 ${360}deg, #fffdf7 ${360}deg)`;
               number.innerText = maximumNumber;
             }
           };
           record_Circles.forEach((circle) => circle.classList.add("active"));
+          recordProgressCircles.forEach((circle) =>
+            circle.classList.add("active")
+          );
           setTimeout(UpdateCount, 200);
         });
       }
@@ -392,7 +438,6 @@ const contactMessageCounter = document.querySelector(
 );
 
 contactName.addEventListener("input", () => {
-  console.log("contact Name");
   contactName.style.borderColor = "transparent";
 });
 contactSurname.addEventListener("input", () => {
@@ -419,6 +464,7 @@ const contactSendButton = document
 const publickey = "ss08N86-3SfBX5n9B";
 const templateID = "template_fbvebb3";
 const serviceID = "service_qrqd48i";
+
 contactMessage.addEventListener("input", function () {
   const remainingChars = 1000 - contactMessage.value.length;
   contactMessageCounter.textContent = remainingChars + " / 1000";
@@ -451,9 +497,6 @@ function validateForm() {
     containsSpecialChars(contactName.value)
   ) {
     boolArray[0] = false;
-    console.log(
-      "Your Name is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters."
-    );
     contactNameError.innerText =
       "* Name is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters.";
     changeOpacity(contactNameError);
@@ -466,9 +509,6 @@ function validateForm() {
     containsSpecialChars(contactSurname.value)
   ) {
     boolArray[1] = false;
-    console.log(
-      "Your Surname is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters."
-    );
     contactSurnameError.innerText =
       "* Surname is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters.";
     changeOpacity(contactSurnameError);
@@ -482,9 +522,6 @@ function validateForm() {
     !contactEmail.value.includes("@")
   ) {
     boolArray[2] = false;
-    console.log(
-      "Your Email is required, it has to be longer than 4 and shorter than 50 characters, and it has to include @."
-    );
     contactEmailError.innerText =
       "* Email is required, it has to be longer than 4 and shorter than 50 characters, and it has to include @.";
     changeOpacity(contactEmailError);
@@ -497,9 +534,6 @@ function validateForm() {
     contactMessage.value.length >= 1000
   ) {
     boolArray[3] = false;
-    console.log(
-      "Message is required, it has to be longer than 20 and shorter than 1000 characters."
-    );
     contactMessageError.innerText =
       "* Message is required, it has to be longer than 20 and shorter than 1000 characters.";
     changeOpacity(contactMessageError);
@@ -539,16 +573,3 @@ function sendEmail(contactParameters) {
 }
 
 /*Contact Form*/
-
-/* contactName.setCustomValidity(
-      "Your Name is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters."
-    );
-    contactSurname.setCustomValidity(
-      "Your Surname is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters."
-    );
-    contactEmail.setCustomValidity(
-      "Your Email is required, it has to be longer than 4 and shorter than 50 characters, and it has to include @."
-    );
-    contactMessage.setCustomValidity(
-      "Message is required, it has to be longer than 20 and shorter than 1000 characters."
-    ); */
