@@ -1,12 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Leckerli+One&family=Lobster&family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;0,800;1,400;1,600;1,800&family=Pacifico&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Monofett&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 :root {
   /*Colours*/
@@ -55,7 +53,8 @@
   --filter-default-biggest: drop-shadow(5px 0 0 var(--colour-tertiary))
     drop-shadow(0 -5px 0 var(--colour-secondary));
   /*Fonts*/
-  --unique-font: "Cutive Mono", Mono;
+  --unique-font: "Space Grotesk", sans-serif, sans;
+
   --common-font: "Montserrat", "Arial Narrow";
   /*box sizes*/
   --radius-minor: 0.32rem;
@@ -455,6 +454,13 @@ nav .container {
   color: var(--colour-tertiary);
   border-bottom: none;
 }
+.footer-links a.testamonials-link {
+  visibility: hidden;
+}
+.links a.testamonials-link {
+  display: none;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -803,6 +809,7 @@ span.button::before {
   width: 21rem;
 }
 .about-me-title {
+  width: 100%;
   position: relative;
   top: -200px;
   opacity: 0;
@@ -827,7 +834,7 @@ span.button::before {
   transition: 0.75s;
 }
 .about-me-column2 .text {
-  padding: 1rem;
+  padding: 1rem 2.48rem;
   margin: 0;
 }
 .about-me-text {
@@ -1710,7 +1717,7 @@ span.button::before {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0.64rem;
-  margin-top: 1rem;
+  margin: 1rem 0 1rem 0;
   border: 2px solid var(--colour-opposite);
 }
 .footer-follow-me p.text {
