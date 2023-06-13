@@ -28,7 +28,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="icon" href="IMG/NewLogo2.pngg" type="image/x-icon" />
+    <link rel="icon" href="IMG/MyLogoNew.png" type="image/x-icon" />
   </head>
   <body>
     <header>
@@ -38,7 +38,7 @@
         <section class="container" id="home-sectionv">
           <section class="nav-logo">
             <div class="logo">
-              <img src="./IMG/NewLogo2.png" alt="logo.png" />
+              <img src="./IMG/MyLogoNew.png" alt="logo.png" />
             </div>
             <label class="logo-label">{Wolak.dev}</label>
           </section>
@@ -48,10 +48,13 @@
               <li><a href="#home-section">Home</a></li>
               <li><a href="#About-me-section">About me</a></li>
               <li><a href="#Skills-section">Skills</a></li>
-              <li><a href="#">My Works</a></li>
+              <li><a href="#My-works-section">My Works</a></li>
               <li><a href="#">Testamonials</a></li>
               <li>
-                <a href="#" class="active button" data-button="Contact Me"
+                <a
+                  href="#Contact-me-section"
+                  class="active button"
+                  data-button="Contact Me"
                   >Contact me</a
                 >
               </li>
@@ -75,7 +78,6 @@
               ><span class="animated-subtitle--text end-text"></span>
               <span class="blinker">&#9632;</span>
             </div>
-            <!-- <h2 class="header-subtitle">Professional software engineer</h2> -->
             <div class="header-socials">
               <ul class="socials-list">
                 <li>
@@ -83,14 +85,20 @@
                     ><i class="fa-brands fa-linkedin fa-initial"></i
                     ><i class="fa-brands fa-linkedin fa-hover"></i
                   ></a>
+                </li>
+                <li>
                   <a href="#" class="social-links">
                     <i class="fa-brands fa-square-facebook fa-initial"></i
                     ><i class="fa-brands fa-square-facebook fa-hover"></i
                   ></a>
+                </li>
+                <li>
                   <a href="#" class="social-links">
                     <i class="fa-brands fa-square-instagram fa-initial"></i
                     ><i class="fa-brands fa-square-instagram fa-hover"></i
                   ></a>
+                </li>
+                <li>
                   <a href="#" class="social-links">
                     <i class="fa-brands fa-square-github fa-initial"></i
                     ><i class="fa-brands fa-square-github fa-hover"></i
@@ -128,25 +136,58 @@
                 I'm Tomasz Wolak, a Front-end & Mobile software engineer
               </h2>
               <p class="text about-me-text">
-                I am a software engineer based in the United Kingdom and I have
-                been building application websites with creativity and problem
-                solving in hopes to bring products to life. I can help translate
-                a vision onto a tangible and useful software products. I stick
-                to requirements, manage priorities, iterate and deliver on time.
-                Check out my projects to take a look at what I am capable of.
+                I am a front-end developer with a passion for creating stunning,
+                user friendly and responsive web pages and applications. I
+                utilise my creativity and problem solving skills to translate a
+                vision to help bring products to life. I stick to requirements,
+                manage priorities, iterate and deliver on time. I specialise in
+                CSS, JavaScript, JQuery and React, but I am constantly looking
+                to improve my knowledge, sharpen my skills and to learn new
+                technologies and frameworks. Please check out my projects and
+                have a look at what I am capable of producing.
               </p>
-              <div class="about-me-column2-wrapper">
+              <div class="about-me-column2-row tech-stack-icon-container">
+                <a href="#" class="tech-stack-icons html-icon"
+                  ><img src="/IMG/TechStackIcons/HTML.png" alt="html.png"
+                /></a>
+                <a href="#" class="tech-stack-icons css-icon"
+                  ><img src="/IMG/TechStackIcons/CSS.png" alt="css.png"
+                /></a>
+                <a href="#" class="tech-stack-icons javascript-icon"
+                  ><img
+                    src="/IMG/TechStackIcons/JavaScript.png"
+                    alt="javascript.png"
+                /></a>
+
+                <a href="#" class="tech-stack-icons react-icon"
+                  ><img src="/IMG/TechStackIcons/React.png" alt="react.png"
+                /></a>
+                <a href="#" class="tech-stack-icons tailwind-icon"
+                  ><img
+                    src="/IMG/TechStackIcons/Tailwind.png"
+                    alt="tailwind.png"
+                /></a>
+                <a href="#" class="tech-stack-icons typescript-icon"
+                  ><img
+                    src="/IMG/TechStackIcons/TypeScript.png"
+                    alt="typescript.png"
+                /></a>
+                <a href="#" class="tech-stack-icons vite-icon"
+                  ><img src="/IMG/TechStackIcons/Vite.png" alt="vite.png"
+                /></a>
+              </div>
+              <div class="about-me-column2-row about-me-buttons">
                 <a href="#" class="text about-me-links">
                   <span class="button"
                     ><i class="fa-solid fa-map-location-dot"></i
                   ></span>
-                  Scunthorpe
+                  Scunthorpe, North Lincolnshire, UK
                 </a>
-                <a href="#" class="text about-me-links"
+                <a href="#Contact-me-section" class="text about-me-links"
                   ><span class="button"
                     ><i class="fa-solid fa-envelope"></i></span
-                  >Contact me via an Email
-                </a>
+                  >Contact me</a
+                >
               </div>
               <a href="#" class="button cv-button" data-button="Download CV"
                 >Download CV</a
@@ -159,28 +200,28 @@
         <div class="container">
           <div class="record-wrap">
             <div class="record-circle">
-              <h2 class="number" data-number="35">0</h2>
+              <h2 class="number" data-number="35" data-circle="0">0</h2>
               <h4 class="sub-title">Projects Finished</h4>
             </div>
           </div>
 
           <div class="record-wrap">
             <div class="record-circle">
-              <h2 class="number" data-number="15">0</h2>
+              <h2 class="number" data-number="15" data-circle="1">0</h2>
               <h4 class="sub-title">Clients Served</h4>
             </div>
           </div>
 
           <div class="record-wrap">
             <div class="record-circle">
-              <h2 class="number" data-number="235">0</h2>
+              <h2 class="number" data-number="235" data-circle="2">0</h2>
               <h4 class="sub-title">Hours Worked</h4>
             </div>
           </div>
 
           <div class="record-wrap">
             <div class="record-circle">
-              <h2 class="number" data-number="5">0</h2>
+              <h2 class="number" data-number="5" data-circle="3">0</h2>
               <h4 class="sub-title">Certifications Obtained</h4>
             </div>
           </div>
@@ -196,58 +237,13 @@
         <section class="section-header">
           <h3 class="title" data-title="What I'm good at"><p>Skills</p></h3>
         </section>
-        <section class="tech-stack">
-          <div class="tech-stack-wrapper">
-            <div class="tech-stack-lines"></div>
-            <div class="tech-stack-box" data-tab="tech-stack">
-              <input
-                type="radio"
-                class="tabs__radio"
-                name="tech-stack-tabs"
-                id="tab-html"
-                checked
-              />
-              <label for="tab-html" class="tabs__label">
-                <i class="fa-brands fa-html5"></i>
-              </label>
-              <div class="tabs__content">
-                HTML is the foundation of any website, thus it's an important
-                technology to master. As expected it too was the beggining of my
-                journey with web development, from the basics through froms and
-                validations to accessability features, I have learned the
-                necessary know-how on HTML. As always learning is a neverending
-                process, so as long as there is room for improvement I will
-                strive to perfect my skills.
-              </div>
-              <input
-                type="radio"
-                class="tabs__radio"
-                name="tech-stack-tabs"
-                id="tab-CSS"
-              />
-              <label for="tab-CSS" class="tabs__label">
-                <i class="fa-brands fa-css3-alt"></i>
-              </label>
-              <div class="tabs__content">Content for CSS tab</div>
-              <input
-                type="radio"
-                class="tabs__radio"
-                name="tech-stack-tabs"
-                id="tab-JavaScript"
-              />
-              <label for="tab-JavaScript" class="tabs__label">
-                <i class="fa-brands fa-js"></i>
-              </label>
-              <div class="tabs__content">Content for JavaScript tab</div>
-            </div>
-          </div>
-        </section>
+
         <section class="card-container">
           <div class="card-wrapper">
             <div class="card-lines"></div>
             <div class="card card-one" data-card="UI/UX">
               <div class="card-content">
-                <h3 class="title-card">Web Design</h3>
+                <h3 class="title-card">UI/UX Design</h3>
                 <p class="text">
                   I am able to recreate complex designs to pixel perfect quality
                   and create gorgeus designs on my own, I am able to provide
@@ -260,14 +256,17 @@
               <img class="icon" src="IMG/webdesign.png" alt="webdes.png" />
             </div>
           </div>
+
           <div class="card-wrapper">
             <div class="card-lines"></div>
             <div class="card card-two" data-card="Code">
               <div class="card-content">
-                <h3 class="title-card">Web Development</h3>
+                <h3 class="title-card">Programming</h3>
                 <p class="text">
-                  I am an skilled web developer able to work with a variety of
-                  tools to bring forth the highest standart of service.
+                  As a skilled web developer I am able to write clean code and
+                  work with a variety of tools to deliver tangible and high
+                  quality products. I am proficient in JavaScript, TypeScript
+                  and C#.
                 </p>
               </div>
             </div>
@@ -275,14 +274,47 @@
               <img class="icon" src="IMG/webdevelopment.png" alt="webdev.png" />
             </div>
           </div>
+
           <div class="card-wrapper">
             <div class="card-lines"></div>
             <div class="card card-three" data-card="App">
               <div class="card-content">
-                <h3 class="title-card">App Development</h3>
+                <h3 class="title-card">Mobile Development</h3>
                 <p class="text">
-                  I have worked with on developing a number of mobile apps and I
-                  feel confident in this skill.
+                  I develop mobile apps using React Native as I am already
+                  familiar with React. I can both recreate a mo
+                </p>
+              </div>
+            </div>
+            <div class="card-imagebox">
+              <img class="icon" src="IMG/appdevelopment.png" alt="appdev.png" />
+            </div>
+          </div>
+
+          <div class="card-wrapper">
+            <div class="card-lines"></div>
+            <div class="card card-four" data-card="Test">
+              <div class="card-content">
+                <h3 class="title-card">Code Testing</h3>
+                <p class="text">
+                  I am able to write conscise unit tests using Jest software.
+                </p>
+              </div>
+            </div>
+            <div class="card-imagebox">
+              <img class="icon" src="IMG/appdevelopment.png" alt="appdev.png" />
+            </div>
+          </div>
+
+          <div class="card-wrapper">
+            <div class="card-lines"></div>
+            <div class="card card-four" data-card="App">
+              <div class="card-content">
+                <h3 class="title-card">Mobile Development</h3>
+                <p class="text">
+                  I develop mobile apps using React Native as I am already
+                  familiar with React. I have developed projects such as 1 2 or
+                  3.
                 </p>
               </div>
             </div>
@@ -292,7 +324,7 @@
           </div>
         </section>
       </section>
-      <section class="portfolio">
+      <section class="portfolio" id="My-works-section">
         <div class="container">
           <div class="section-header">
             <h3 class="title" data-title="My works"><p>Portfolio</p></h3>
@@ -533,7 +565,7 @@
           </div>
         </div>
       </section>
-      <section class="contact">
+      <section class="contact" id="Contact-me-section">
         <div class="section-corners">
           <img class="down-left" src="IMG/Lshape.png" alt="" />
           <img class="down-right" src="IMG/Lshape.png" alt="" />
@@ -545,10 +577,12 @@
             <section class="contact-information">
               <h3 class="title"><p>Get in touch</p></h3>
               <p class="text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Reiciendis mollitia provident, commodi, eum earum, cupiditate
-                sapiente quibusdam ullam ex officiis optio alias aspernatur
-                magnam sunt quaerat quae? Placeat, ipsa eius.
+                Hi there, If youre interested in getting in touch, I would
+                suggest filling out the following contact form, it sends the
+                message from you straight to my email and is the best way of
+                making sure that the message is recieved and read in a timely
+                manner. You may also contact me via my socials, I try to check
+                them reguraly but might take some time to respond.
               </p>
 
               <div class="information-wrapper">
@@ -636,7 +670,108 @@
         </div>
       </section>
     </main>
-    <footer></footer>
+    <footer class="footer">
+      <div class="container">
+        <div class="gird-wrap">
+          <div class="gird-4">
+            <div class="grid-4-column footer-about">
+              <div class="footer-logo-and-label">
+                <div class="footer-logo">
+                  <img src="./IMG/MyLogoNew.png" alt="logo.png" />
+                </div>
+                <label class="footer-logo-label">{Wolak.dev}</label>
+              </div>
+              <p class="text">
+                This website has been created by Tomasz Wolak and it utilises
+                HTML, CSS, JavaScript as well as JQuery, Isotope layout plugin,
+                EmailJS and others.
+              </p>
+            </div>
+
+            <div class="grid-4-column footer-links">
+              <h3 class="title-sm">Links</h3>
+              <ul>
+                <li><a href="#">About me</a></li>
+                <li><a href="#">My works</a></li>
+                <li><a href="#">blog</a></li>
+                <li><a href="#">Contact me</a></li>
+                <li><a href="#">Testamonials</a></li>
+                <li>
+                  <a href="#" class="active button" data-button="Back to top"
+                    >Back to top</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="grid-4-column footer-skills">
+              <h3 class="title-sm">What I do</h3>
+              <ul>
+                <li><a href="#">Web & App Design</a></li>
+                <li><a href="#">Front-end</a></li>
+                <li><a href="#">Programming</a></li>
+                <li><a href="#">Mobile Development</a></li>
+                <li><a href="#">Software Testing</a></li>
+                <li>
+                  <a href="#" class="active button" data-button="Skills"
+                    >Skills</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="grid-4-column footer-follow-me">
+              <h3 class="title-sm">Follow me on:</h3>
+              <ul>
+                <li>
+                  <a href="#" class="footer-social-links"
+                    ><i class="fa-brands fa-linkedin fa-initial"></i
+                    ><i class="fa-brands fa-linkedin fa-hover"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="footer-social-links">
+                    <i class="fa-brands fa-square-facebook fa-initial"></i
+                    ><i class="fa-brands fa-square-facebook fa-hover"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="footer-social-links">
+                    <i class="fa-brands fa-square-instagram fa-initial"></i
+                    ><i class="fa-brands fa-square-instagram fa-hover"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="footer-social-links">
+                    <i class="fa-brands fa-square-github fa-initial"></i
+                    ><i class="fa-brands fa-square-github fa-hover"></i
+                  ></a>
+                </li>
+              </ul>
+              <h3 class="title-sm">Newsletter</h3>
+              <p class="text">
+                You can enter your email to follow my newsletter for ocassional
+                updates on my ongoing projects and blog posts.
+              </p>
+              <div class="footer-email-input-wrap">
+                <input
+                  type="email"
+                  class="footer-email-input"
+                  placeholder="Enter your Email"
+                />
+                <a href="#" class="email-input-submit button"
+                  ><i class="fa-solid fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-row">
+          <p>&copy; 2023, Tomasz Wolak. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
   </body>
   <!-- “Knowledge is of no value unless you put it into practice” -->
 </html>
