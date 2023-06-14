@@ -107,7 +107,7 @@ headerTypeWriter = () => {
 /*End of Header Section Observer*/
 /* About-me Section Observer*/
 const aboutMeBox = document.querySelector(".about-me");
-const aboutMeImage = document.querySelector(".image");
+const aboutMeImage = document.querySelector(".image-wrap");
 const aboutMeTitle = document.querySelector(".about-me-title");
 const aboutMeText = document.querySelector(".about-me-text");
 const aboutMeButtons = document.querySelector(".about-me-buttons");
@@ -133,7 +133,6 @@ const aboutMeObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        aboutMeImage.style.animationPlayState = "running";
         aboutMeImage.style.opacity = "1";
         aboutMeImage.style.left = "0px";
         aboutMeTitle.style.opacity = "1";
