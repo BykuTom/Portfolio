@@ -8,6 +8,18 @@ $(".grid").isotope({
 
 /*End of Jquery Isotope*/
 
+/*Navburger Menu*/
+const navBurger = document.querySelector(".hamburger-menu");
+
+navBurger.addEventListener("click", () => {
+  if (navBurger.classList.contains("is-active")) {
+    navBurger.classList.remove("is-active");
+  } else {
+    navBurger.classList.add("is-active");
+  }
+});
+/*End of NavBurger Menu*/
+
 /*Type Writer*? */
 const animatedText = document.querySelector(".end-text");
 const blinker = document.querySelector(".blinker");
