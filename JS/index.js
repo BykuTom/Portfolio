@@ -10,14 +10,18 @@ $(".grid").isotope({
 
 /*Navburger Menu*/
 const navBurger = document.querySelector(".hamburger-menu");
+const navList = document.querySelector(".nav-list");
 
 navBurger.addEventListener("click", () => {
   if (navBurger.classList.contains("is-active")) {
     navBurger.classList.remove("is-active");
+    navList.classList.remove("is-active");
   } else {
     navBurger.classList.add("is-active");
+    navList.classList.add("is-active");
   }
 });
+//Maybe make an array and use foreach function?
 /*End of NavBurger Menu*/
 
 /*Type Writer*? */

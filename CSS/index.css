@@ -470,12 +470,14 @@ nav .container {
   height: 35px;
   cursor: pointer;
   align-self: center;
-  margin-right: 0.64rem;
   appearance: none;
   outline: none;
   border: none;
   background: none;
-  position: relative;
+  position: fixed;
+  top: 3rem;
+  transform: translateY(-50%);
+  right: calc(0% + 0.64rem);
 }
 .hamburger-menu .bar,
 .hamburger-menu::after,
@@ -503,12 +505,12 @@ nav .container {
 }
 .hamburger-menu.is-active::before {
   margin: auto 0;
-  transform: rotate(-45deg);
+  transform: rotate(-405deg);
   opacity: 1;
 }
 .hamburger-menu.is-active::after {
   margin: auto 0;
-  transform: rotate(45deg);
+  transform: rotate(405deg);
   opacity: 1;
 }
 header {
@@ -2158,8 +2160,31 @@ span.button::before {
   .section-corners {
     display: none;
   }
-  .links ul {
-    display: none;
+  nav .container {
+    padding: 0.64rem;
+  }
+  .links .nav-list {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 5rem;
+    max-width: 400px;
+    width: 100%;
+    right: calc(0px - 400px);
+    top: 0;
+    bottom: 0;
+    transition: 0.64s linear;
+    background: linear-gradient(
+      to bottom right,
+      var(--colour-main),
+      var(--colour-dusky-blue-transparent) 64%
+    );
+    backdrop-filter: blur(3px);
+  }
+  .links .nav-list.is-active {
+    right: 0px;
   }
 }
 @media (max-width: 550px) {
