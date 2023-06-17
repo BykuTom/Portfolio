@@ -1296,7 +1296,7 @@ span.button::before {
   left: -2rem;
 }
 .card-six::before {
-  left: -2rem;
+  left: -5.2rem;
 }
 .card-lines {
   position: absolute;
@@ -2200,6 +2200,7 @@ span.button::before {
       var(--colour-dusky-blue-transparent) 64%
     );
     backdrop-filter: blur(3px);
+    border-left: 2px solid var(--colour-secondary);
   }
   .links .nav-list.is-active {
     right: 0px;
