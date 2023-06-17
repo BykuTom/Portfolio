@@ -268,6 +268,27 @@ function init() {
 function resizeReset() {
   w = canvas.width = window.innerWidth;
   h = canvas.height = window.innerHeight;
+  if (w > 256) {
+    particleDistance = 48;
+    console.log("tru");
+  }
+  if (w > 1024) {
+    particleDistance = 56;
+    console.log("tru");
+  }
+  if (w > 1920) {
+    particleDistance = 64;
+    console.log("tru");
+  }
+  if (w > 2560) {
+    particleDistance = 72;
+    console.log("tru");
+  }
+  if (w > 3840) {
+    particleDistance = 96;
+    console.log("tru");
+  }
+
   particles = [];
   for (
     let y =
