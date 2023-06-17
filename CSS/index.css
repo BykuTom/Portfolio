@@ -2213,6 +2213,9 @@ span.button::before {
   }
 }
 @media (max-width: 550px) {
+  .header-socials .socials-list {
+    bottom: 7.5%;
+  }
   .card-wrapper {
     max-width: 100%;
     margin: 2rem 0.64rem;

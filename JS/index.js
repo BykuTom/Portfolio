@@ -164,7 +164,7 @@ const aboutMeObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.32 }
+  { threshold: 0.16 }
 );
 
 aboutMeObserver.observe(aboutMeBox);
@@ -229,7 +229,7 @@ const recordsObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.32 }
+  { threshold: 0.16 }
 );
 
 recordsObserver.observe(record_wrap);
