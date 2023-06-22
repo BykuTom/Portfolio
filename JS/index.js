@@ -495,23 +495,199 @@ contactMessage.addEventListener("input", function () {
     contactMessageCounter.style.color = "#ff9500";
   }
 });
-function containsSpecialChars(string) {
-  const regex = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-  return regex.test(string);
-}
+
 function changeOpacity(element) {
   element.style.opacity = 1;
   setTimeout(() => {
     element.style.opacity = "0";
   }, 5000);
 }
+function changeOpacityMK2(...elements) {
+  elements.forEach((element) => {
+    element.style.opacity = 1;
+    setTimeout(() => {
+      element.style.opacity = "0";
+    }, 5000);
+  });
+} // hmm timing is stinky, i want to be able to decide if it needs a timing or not,
+// maybe making an object class would be better?
 function validateForm() {
   let boolArray = [true, true, true, true];
   let boolMap;
   /* function isArrayAllTrue(array){
     return array.every(element => element === true);
   } */
-  if (
+  /* try {
+    if (contactName.value.length <= 2)
+      throw "Name has to be longer than 2 characters";
+    if (contactName.value.length >= 15)
+      throw "Name has to be shorter than 15 characters";
+    if (contactName.value.includes(" ")) throw "Name cannot contain any spaces";
+    if (containsSpecialChars(contactName.value))
+      throw "Name cannot contain any special characters";
+  } catch (error) {
+    boolArray[0] = false;
+    contactName.innerText = error;
+    changeOpacity(contactNameError);
+    contactName.style.borderColor = "#ff5a5f";
+  } */
+
+  /* function validateNameInput() {
+    errorMessageArray[0] = "";
+    contactNameError.innerText = null;
+
+    try {
+      if (contactName.value.length <= 2)
+        throw "Name has to be longer than 2 characters";
+      if (contactName.value.length >= 15)
+        throw "Name has to be shorter than 15 characters";
+      if (contactName.value.includes(" "))
+        throw "Name cannot contain any spaces";
+      if (containsSpecialChars(contactName.value))
+        throw "Name cannot contain any special characters";
+    } catch (error) {
+      boolArray[0] = false;
+      errorMessageArray[0] += error;
+      console.log(error);
+      changeOpacity(contactNameError);
+      contactName.style.borderColor = "#ff5a5f";
+    }
+
+    contactNameError.innerText = errorMessageArray[0];
+  } */
+
+  function validateNameInput() {
+    contactNameError.innerText = null;
+    let errorMessages = [];
+    // I created the errorMessages array in order to collect all error messages
+    try {
+      if (contactName.value.length <= 2)
+        errorMessages.push("Name has to be longer than 2 characters");
+      if (contactName.value.length >= 15)
+        errorMessages.push("Name has to be shorter than 15 characters");
+      if (contactName.value.includes(" "))
+        errorMessages.push("Name cannot contain any spaces");
+      if (containsSpecialChars(contactName.value))
+        errorMessages.push("Name cannot contain any special characters");
+      // the following if statement checks for the lenght of the array and if its longer than 0 (1)
+      // it changes the validation bull to false, changes the colour of the input border and lastly it throws a new error
+      // made up from combined error messages seperated by the bew line \n
+      // otherwise the border becomes white on validation
+      if (errorMessages.length > 0) {
+        boolArray[0] = false;
+        contactName.style.borderColor = "#ff5a5f";
+        throw new Error(errorMessages.join("\n"));
+      } else {
+        contactName.style.borderColor = "#d3d3d3";
+        boolArray[0] = true;
+      }
+      // catch block catches the error thrown ealier and then I create a new array made from spliting the error message using \n
+      // then for each element in error array I check if it isnt empty in which case I create a new div element, put my error inside
+      // and apend it to the contactNameError element, before changing opacity.
+    } catch (error) {
+      const errorArray = error.message.split("\n");
+      errorArray.forEach((errorMessage) => {
+        if (errorMessage !== "") {
+          const div = document.createElement("div");
+          div.innerText = errorMessage;
+          contactNameError.appendChild(div);
+          changeOpacity(contactNameError);
+        }
+      });
+    }
+  }
+
+  function containsSpecialChars(string) {
+    const regex = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    return regex.test(string);
+  }
+
+  function validateInput(
+    input,
+    inputElement,
+    contactErrorElement,
+    minimunCharacterNumber,
+    maximumCharacterNumber
+  ) {
+    contactErrorElement.innerText = null;
+    let errorMessages = [];
+
+    const inputValidationCriteria = {
+      Name: {
+        disallowedChars: /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/,
+        disallowedSpace: /( )/,
+      },
+      Surname: {
+        disallowedChars: /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/,
+        disallowedSpace: /( )/,
+      },
+      Email: {
+        requiredChars: /[@]/,
+      },
+    };
+
+    try {
+      if (inputElement.value.length <= minimunCharacterNumber)
+        errorMessages.push(
+          `${input} has to be longer than ${minimunCharacterNumber}`
+        );
+      if (inputElement.value.length >= maximumCharacterNumber)
+        errorMessages.push(
+          `${input} has to be shorter than ${maximumCharacterNumber}`
+        );
+
+      if (input == "Name" || input == "Surname") {
+        console.log("code is at input name or surname");
+        console.log(inputValidationCriteria[input]);
+        if (
+          inputValidationCriteria[input] &&
+          inputValidationCriteria[input].disallowedSpace &&
+          inputValidationCriteria[input].disallowedSpace.test(
+            inputElement.value
+          )
+        )
+          errorMessages.push(`${input} can't contain any spaces`);
+        if (
+          inputValidationCriteria[input] &&
+          inputValidationCriteria[input].disallowedChars &&
+          inputValidationCriteria[input].disallowedChars.test(
+            inputElement.value
+          )
+        )
+          errorMessages.push(`${input} can't contain any special characters`);
+      }
+      if (input == "Email") {
+        if (
+          inputValidationCriteria[input] &&
+          inputValidationCriteria[input].requiredChars &&
+          !inputValidationCriteria[input].requiredChars.test(inputElement.value)
+        ) {
+          errorMessages.push(`${input} must include an @ symbol`);
+        }
+      }
+
+      if (errorMessages.length > 0) {
+        boolArray[0] = false;
+        inputElement.style.borderColor = "#ff5a5f";
+        throw new Error(errorMessages.join("\n"));
+      } else {
+        inputElement.style.borderColor = "#d3d3d3";
+        boolArray[0] = true;
+      }
+    } catch (error) {
+      const errorArray = error.message.split("\n");
+      errorArray.forEach((errorMessage) => {
+        if (errorMessage !== "") {
+          const div = document.createElement("div");
+          div.innerText = errorMessage;
+          contactErrorElement.appendChild(div);
+          changeOpacity(contactErrorElement);
+        }
+      });
+    }
+  }
+
+  /*  if (
     contactName.value.length <= 2 ||
     contactName.value.length >= 15 ||
     contactName.value.includes(" ") ||
@@ -522,8 +698,13 @@ function validateForm() {
       "* Name is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters.";
     changeOpacity(contactNameError);
     contactName.style.borderColor = "#ff5a5f";
-  }
-  if (
+  } */
+  validateInput("Name", contactName, contactNameError, 2, 15);
+  validateInput("Surname", contactSurname, contactSurnameError, 2, 15);
+  validateInput("Email", contactEmail, contactEmailError, 4, 50);
+  validateInput("Message", contactMessage, contactMessageError, 20, 1000);
+
+  /* if (
     contactSurname.value.length <= 2 ||
     contactSurname.value.length >= 15 ||
     contactSurname.value.includes(" ") ||
@@ -534,10 +715,8 @@ function validateForm() {
       "* Surname is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters.";
     changeOpacity(contactSurnameError);
     contactSurname.style.borderColor = "#ff5a5f";
-  }
-  if (
-    contactEmail.value === "" ||
-    contactEmail.value == null ||
+  } */
+  /* if (
     contactSurname.value.length <= 4 ||
     contactEmail.value.length >= 50 ||
     !contactEmail.value.includes("@")
@@ -549,8 +728,6 @@ function validateForm() {
     contactEmail.style.borderColor = "#ff5a5f";
   }
   if (
-    contactMessage.value === "" ||
-    contactMessage.value == null ||
     contactMessage.value.length <= 20 ||
     contactMessage.value.length >= 1000
   ) {
@@ -559,7 +736,7 @@ function validateForm() {
       "* Message is required, it has to be longer than 20 and shorter than 1000 characters.";
     changeOpacity(contactMessageError);
     contactMessage.style.borderColor = "#ff5a5f";
-  }
+  } */
   if (!boolArray.includes(false)) {
     console.log("Attempting to send...");
     defineParameters();
