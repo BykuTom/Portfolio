@@ -597,11 +597,11 @@ function validateForm() {
     }
   }
 
-  function containsSpecialChars(string) {
+  /*   function containsSpecialChars(string) {
     const regex = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
     return regex.test(string);
   }
-
+ */
   function validateInput(
     input,
     inputElement,
