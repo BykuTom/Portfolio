@@ -84,10 +84,7 @@ body {
   background-color: var(--colour-main);
   /*  background-image: var(--background_image); */
 }
-svg {
-  width: 0;
-  height: 0;
-}
+
 body,
 button,
 input,
@@ -132,7 +129,6 @@ textarea::-webkit-input-placeholder {
   position: relative;
   z-index: 5;
   max-width: var(--page-width);
-  padding: 0 4rem;
   background: var(--colour-main-transparent);
   backdrop-filter: blur(2px);
   background-clip: content-box;

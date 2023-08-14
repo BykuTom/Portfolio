@@ -122,6 +122,9 @@ headerTypeWriter = () => {
 
 /*End of Header Section Observer*/
 /* About-me Section Observer*/
+
+/* Intersection Observers */
+
 const aboutMeBox = document.querySelector(".about-me");
 const aboutMeImage = document.querySelector(".image-wrap");
 const aboutMeTitle = document.querySelector(".about-me-title");
@@ -614,11 +617,11 @@ function validateForm() {
 
     const inputValidationCriteria = {
       Name: {
-        disallowedChars: /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/,
+        disallowedChars: /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/,
         disallowedSpace: /( )/,
       },
       Surname: {
-        disallowedChars: /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/,
+        disallowedChars: /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/,
         disallowedSpace: /( )/,
       },
       Email: {
@@ -665,10 +668,9 @@ function validateForm() {
           errorMessages.push(`${input} must include an @ symbol`);
         }
       }
-
       if (errorMessages.length > 0) {
         boolArray[0] = false;
-        inputElement.style.borderColor = "#ff5a5f";
+        error.message.inputElement.style.borderColor = "#ff5a5f";
         throw new Error(errorMessages.join("\n"));
       } else {
         inputElement.style.borderColor = "#d3d3d3";
