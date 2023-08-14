@@ -1,4 +1,4 @@
-<img align="left" width="400" src="https://github.com/BykuTom/Portfolio/blob/master/IMG/MyLogoNew.png">
+<img align="left" width="250" src="https://github.com/BykuTom/Portfolio/blob/master/IMG/MyLogoNew.png">
 <h1 align="center">Personal Portfolio Website</h1>
 <h3 align="center">My first front-end project written in HTML, CSS and JavaScript and JQuery</h3>
 <p align="left">With this project I demonstrate my ability to work with web development technologies to bring a project to life</p>
