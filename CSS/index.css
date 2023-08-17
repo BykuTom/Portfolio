@@ -294,7 +294,6 @@ textarea::-webkit-input-placeholder {
 }
 
 .button {
-  box-shadow: 0 3px 2px var(--colour-onyx-black);
   display: inline-block;
   position: relative;
   padding: 0.85rem 2rem;
@@ -332,7 +331,7 @@ textarea::-webkit-input-placeholder {
     var(--colour-secondary)
   );
 
-  transition: opacity 0.5s linear infinite;
+  transition: opacity 0.5s linear;
   opacity: 0;
 }
 .button:hover {
