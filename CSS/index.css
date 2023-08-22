@@ -1008,7 +1008,10 @@ span.button::before {
 .about-me-links:hover span.button {
   color: var(--colour-tertiary);
 }
-
+a.text.about-me-links {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
 .about-me .section-header h3.title:after {
   width: 21rem;
 }
