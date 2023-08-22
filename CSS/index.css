@@ -1051,6 +1051,7 @@ span.button::before {
   position: relative;
   opacity: 0;
   bottom: -300px;
+  cursor: pointer;
   transition: 1s;
 }
 /*End of About me*/
