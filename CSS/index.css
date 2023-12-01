@@ -923,12 +923,11 @@ main {
 
 .photo-one {
   border-radius: 64% 32% 64% 32% / 32% 64% 32% 72%;
+  bottom: -5%;
   position: absolute;
-  max-width: 750px;
-  bottom: calc(0% + 0.25rem);
+  width: 120%;
   z-index: 5;
   filter: var(--filter-default-biggest);
-  animation: border-blob-animation 10s linear infinite;
 }
 
 .about-me-column2 {
@@ -1601,7 +1600,7 @@ a.text.about-me-links {
 .github-links,
 .live-demo-links {
   font-size: 3rem;
-  color: var(--colour-main);
+  color: var(--colour-baby-powder-white);
 }
 .github-links:hover,
 .live-demo-links:hover {
