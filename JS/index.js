@@ -29,9 +29,9 @@ const animatedText = document.querySelector(".end-text");
 const blinker = document.querySelector(".blinker");
 
 const typeWriterText = [
-  "Front-End Developer }",
+  "Automation Test Engineer }",
   "Software Engineer }",
-  "Web Developer }",
+  "Fullstack Developer }",
 ];
 let arrayIndex = 0;
 let textIndex = 0;
@@ -43,9 +43,7 @@ let textLenght;
 typeWriter = () => {
   if (blinker.style.animationPlayState === "running") {
     blinker.style.animationPlayState = "paused";
-    //console.log(blinker.style.opacity);
     blinker.style.opacity = "1";
-    //console.log(blinker.style.opacity);
   }
   if (arrayIndex >= 3) {
     arrayIndex = 0;
@@ -85,7 +83,7 @@ const headerTitle = document.querySelector(".header-title");
 const begginingSubText = document.querySelector(".beggining-text");
 const socialLinkIconsNodeList = document.querySelectorAll(".social-links"); // grab nodelist
 const socialLinkIconsArray = [...socialLinkIconsNodeList]; // use spread operator to convert it into an array
-const subText = "{ A Professional";
+const subText = "{ ";
 const myName = "Tomasz Wolak";
 let headerTextIndex = 0;
 let subTextIndex = 1;
