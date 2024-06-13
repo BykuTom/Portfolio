@@ -126,7 +126,7 @@ headerTypeWriter = () => {
 const aboutMeBox = document.querySelector(".about-me");
 const aboutMeImage = document.querySelector(".image-wrap");
 const aboutMeTitle = document.querySelector(".about-me-title");
-const aboutMeText = document.querySelector(".about-me-text");
+const aboutMeText = document.querySelectorAll(".about-me-text");
 const aboutMeButtons = document.querySelector(".about-me-buttons");
 const cvButton = document.querySelector(".cv-button");
 
@@ -154,8 +154,12 @@ const aboutMeObserver = new IntersectionObserver(
         aboutMeImage.style.left = "0px";
         aboutMeTitle.style.opacity = "1";
         aboutMeTitle.style.top = "0px";
-        aboutMeText.style.opacity = "1";
-        aboutMeText.style.right = "0px";
+
+        aboutMeText.forEach((element) => {
+          element.style.opacity = "1";
+          element.style.right = "0px";
+        });
+
         techstackIconTray.style.opacity = "1";
         techstackIconLoader();
         aboutMeButtons.style.opacity = "1";
