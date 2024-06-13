@@ -514,57 +514,15 @@ function changeOpacityMK2(...elements) {
       element.style.opacity = "0";
     }, 5000);
   });
-} // hmm timing is stinky, i want to be able to decide if it needs a timing or not,
-// maybe making an object class would be better?
+}
+
 function validateForm() {
   let boolArray = [true, true, true, true];
   let boolMap;
-  /* function isArrayAllTrue(array){
-    return array.every(element => element === true);
-  } */
-  /* try {
-    if (contactName.value.length <= 2)
-      throw "Name has to be longer than 2 characters";
-    if (contactName.value.length >= 15)
-      throw "Name has to be shorter than 15 characters";
-    if (contactName.value.includes(" ")) throw "Name cannot contain any spaces";
-    if (containsSpecialChars(contactName.value))
-      throw "Name cannot contain any special characters";
-  } catch (error) {
-    boolArray[0] = false;
-    contactName.innerText = error;
-    changeOpacity(contactNameError);
-    contactName.style.borderColor = "#ff5a5f";
-  } */
-
-  /* function validateNameInput() {
-    errorMessageArray[0] = "";
-    contactNameError.innerText = null;
-
-    try {
-      if (contactName.value.length <= 2)
-        throw "Name has to be longer than 2 characters";
-      if (contactName.value.length >= 15)
-        throw "Name has to be shorter than 15 characters";
-      if (contactName.value.includes(" "))
-        throw "Name cannot contain any spaces";
-      if (containsSpecialChars(contactName.value))
-        throw "Name cannot contain any special characters";
-    } catch (error) {
-      boolArray[0] = false;
-      errorMessageArray[0] += error;
-      console.log(error);
-      changeOpacity(contactNameError);
-      contactName.style.borderColor = "#ff5a5f";
-    }
-
-    contactNameError.innerText = errorMessageArray[0];
-  } */
 
   function validateNameInput() {
     contactNameError.innerText = null;
     let errorMessages = [];
-    // I created the errorMessages array in order to collect all error messages
     try {
       if (contactName.value.length <= 2)
         errorMessages.push("Name has to be longer than 2 characters");
@@ -574,10 +532,6 @@ function validateForm() {
         errorMessages.push("Name cannot contain any spaces");
       if (containsSpecialChars(contactName.value))
         errorMessages.push("Name cannot contain any special characters");
-      // the following if statement checks for the lenght of the array and if its longer than 0 (1)
-      // it changes the validation bull to false, changes the colour of the input border and lastly it throws a new error
-      // made up from combined error messages seperated by the bew line \n
-      // otherwise the border becomes white on validation
       if (errorMessages.length > 0) {
         boolArray[0] = false;
         contactName.style.borderColor = "#ff5a5f";
@@ -586,9 +540,6 @@ function validateForm() {
         contactName.style.borderColor = "#d3d3d3";
         boolArray[0] = true;
       }
-      // catch block catches the error thrown ealier and then I create a new array made from spliting the error message using \n
-      // then for each element in error array I check if it isnt empty in which case I create a new div element, put my error inside
-      // and apend it to the contactNameError element, before changing opacity.
     } catch (error) {
       const errorArray = error.message.split("\n");
       errorArray.forEach((errorMessage) => {
@@ -602,11 +553,6 @@ function validateForm() {
     }
   }
 
-  /*   function containsSpecialChars(string) {
-    const regex = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    return regex.test(string);
-  }
- */
   function validateInput(
     input,
     inputElement,
@@ -691,56 +637,11 @@ function validateForm() {
     }
   }
 
-  /*  if (
-    contactName.value.length <= 2 ||
-    contactName.value.length >= 15 ||
-    contactName.value.includes(" ") ||
-    containsSpecialChars(contactName.value)
-  ) {
-    boolArray[0] = false;
-    contactNameError.innerText =
-      "* Name is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters.";
-    changeOpacity(contactNameError);
-    contactName.style.borderColor = "#ff5a5f";
-  } */
   validateInput("Name", contactName, contactNameError, 2, 15);
   validateInput("Surname", contactSurname, contactSurnameError, 2, 15);
   validateInput("Email", contactEmail, contactEmailError, 4, 50);
   validateInput("Message", contactMessage, contactMessageError, 20, 1000);
 
-  /* if (
-    contactSurname.value.length <= 2 ||
-    contactSurname.value.length >= 15 ||
-    contactSurname.value.includes(" ") ||
-    containsSpecialChars(contactSurname.value)
-  ) {
-    boolArray[1] = false;
-    contactSurnameError.innerText =
-      "* Surname is required, it has to be longer than 2 and shorter than 15 characters, and cannot contain any spaces, or special characters.";
-    changeOpacity(contactSurnameError);
-    contactSurname.style.borderColor = "#ff5a5f";
-  } */
-  /* if (
-    contactSurname.value.length <= 4 ||
-    contactEmail.value.length >= 50 ||
-    !contactEmail.value.includes("@")
-  ) {
-    boolArray[2] = false;
-    contactEmailError.innerText =
-      "* Email is required, it has to be longer than 4 and shorter than 50 characters, and it has to include @.";
-    changeOpacity(contactEmailError);
-    contactEmail.style.borderColor = "#ff5a5f";
-  }
-  if (
-    contactMessage.value.length <= 20 ||
-    contactMessage.value.length >= 1000
-  ) {
-    boolArray[3] = false;
-    contactMessageError.innerText =
-      "* Message is required, it has to be longer than 20 and shorter than 1000 characters.";
-    changeOpacity(contactMessageError);
-    contactMessage.style.borderColor = "#ff5a5f";
-  } */
   if (!boolArray.includes(false)) {
     console.log("Attempting to send...");
     defineParameters();
